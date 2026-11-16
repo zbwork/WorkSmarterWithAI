@@ -1,17 +1,45 @@
 <script setup>
 import {computed,ref,onMounted,onUnmounted,watch,nextTick} from 'vue'
-import {useData,useRoute,withBase} from 'vitepress'
-import {contentConfig as c} from '../../../../content.config'
-import {platformList,choosePlatform,platformStatus,platformStale} from '../content-model.mjs'
+import {useData,useRoute} from 'vitepress'
+import {choosePlatform,readablePlatforms,platformStale} from '../content-model.mjs'
 import {usePlatformPreference} from '../platform-preference'
-import LevelBadge from './LevelBadge.vue'
 const props=defineProps({slugs:{type:Array,required:true},groupId:{type:String,required:true}})
 const {frontmatter}=useData(),route=useRoute(),{preferredPlatform,savePlatform}=usePlatformPreference()
-const selected=ref(choosePlatform(props.slugs,'','')),tabButtons=ref([])
-const items=computed(()=>platformList.filter(p=>props.slugs.includes(p.slug)).map(p=>({...p,test:frontmatter.value.platforms?.[p.slug]||{status:'planned',level:p.defaultLevel}})))
-function sync(){selected.value=choosePlatform(props.slugs,new URLSearchParams(location.search).get('platform'),preferredPlatform.value)}
-onMounted(()=>{sync();addEventListener('popstate',sync)});onUnmounted(()=>removeEventListener('popstate',sync));watch([()=>route.path,()=>props.slugs,preferredPlatform],()=>{if(typeof window!=='undefined')sync()},{flush:'post'})
-function select(slug){selected.value=slug;savePlatform(slug);const url=new URL(location.href);url.searchParams.set('platform',slug);history.replaceState(history.state,'',url.pathname+url.search+url.hash)}
-async function keydown(e,index){let target=index;if(e.key==='ArrowRight')target=(index+1)%items.value.length;else if(e.key==='ArrowLeft')target=(index-1+items.value.length)%items.value.length;else if(e.key==='Home')target=0;else if(e.key==='End')target=items.value.length-1;else return;e.preventDefault();select(items.value[target].slug);await nextTick();tabButtons.value[target]?.focus()}
+const items=computed(()=>readablePlatforms(props.slugs,frontmatter.value.platforms))
+const slugs=computed(()=>items.value.map(p=>p.slug))
+const multiple=computed(()=>items.value.length>1)
+const selected=ref(choosePlatform(slugs.value,'','')),tabButtons=ref([])
+function sync(){selected.value=choosePlatform(slugs.value,new URLSearchParams(location.search).get('platform'),preferredPlatform.value)}
+onMounted(()=>{sync();addEventListener('popstate',sync)})
+onUnmounted(()=>removeEventListener('popstate',sync))
+watch([()=>route.path,slugs,preferredPlatform],()=>{if(typeof window!=='undefined')sync()},{flush:'post'})
+async function select(slug){
+ selected.value=slug;savePlatform(slug)
+ const url=new URL(location.href);url.searchParams.set('platform',slug)
+ history.replaceState(history.state,'',url.pathname+url.search+url.hash)
+ await nextTick()
+ const button=tabButtons.value[slugs.value.indexOf(slug)]
+ if(button){const list=button.parentElement;const left=button.offsetLeft;if(left<list.scrollLeft)list.scrollLeft=left;else if(left+button.offsetWidth>list.scrollLeft+list.clientWidth)list.scrollLeft=left+button.offsetWidth-list.clientWidth}
+}
+async function keydown(e,index){
+ let target=index
+ if(e.key==='ArrowRight')target=(index+1)%items.value.length
+ else if(e.key==='ArrowLeft')target=(index-1+items.value.length)%items.value.length
+ else if(e.key==='Home')target=0
+ else if(e.key==='End')target=items.value.length-1
+ else return
+ e.preventDefault();await select(items.value[target].slug);tabButtons.value[target]?.focus()
+}
 </script>
-<template><section class="platform-tabs"><h2 class="tool-heading">你用哪个工具？</h2><div role="tablist" aria-label="选择使用工具" class="platform-tab-list"><button v-for="(p,index) in items" :key="p.slug" :ref="el=>tabButtons[index]=el" role="tab" :id="groupId+'-tab-'+p.slug" :aria-controls="groupId+'-panel-'+p.slug" :aria-selected="selected===p.slug" :tabindex="selected===p.slug?0:-1" @click="select(p.slug)" @keydown="keydown($event,index)"><strong>{{p.name}}</strong><span><LevelBadge :level="p.test.level"/><small v-if="p.developer">开发者</small><span :title="c.platformStatuses[platformStatus(p.test)].label" :aria-label="c.platformStatuses[platformStatus(p.test)].label">{{c.platformStatuses[platformStatus(p.test)].icon}}</span></span></button></div><div v-for="p in items" :key="p.slug" role="tabpanel" :id="groupId+'-panel-'+p.slug" :aria-labelledby="groupId+'-tab-'+p.slug" :hidden="selected!==p.slug" tabindex="0" class="platform-panel"><p v-if="platformStale(p.test)" class="notice">该工具 90 天未复测，界面和费用可能已有变化。</p><p v-else-if="p.test.status==='outdated'" class="notice">这个工具需要重新实测。</p><template v-if="p.test.status==='planned'"><p>这个工具的教程即将补充。</p><a :href="c.platformIssue" target="_blank" rel="noopener">欢迎投稿实测 →</a></template><template v-else-if="p.test.status==='unsupported'"><p>暂不支持：{{p.test.reason}}</p><a :href="withBase('/library/?type=app')">看看其他工具 →</a></template><template v-else><p class="platform-requirements"><LevelBadge :level="p.test.level"/> {{p.test.prerequisites||'前置条件待确认'}}<span v-if="p.test.time"> · {{p.test.time}}</span></p><p v-if="p.test.status==='unverified'" class="muted small">以下为待实测步骤，不代表已经跑通。</p><slot :name="p.slug" /></template></div></section></template>
+<template>
+  <section v-if="items.length" class="platform-tabs" :class="{'single-tool':!multiple}">
+    <div v-if="multiple" role="tablist" aria-label="选择使用工具" class="platform-tab-list">
+      <button v-for="(p,index) in items" :key="p.slug" :ref="el=>tabButtons[index]=el" role="tab" :id="groupId+'-tab-'+p.slug" :aria-controls="groupId+'-panel-'+p.slug" :aria-selected="selected===p.slug" :tabindex="selected===p.slug?0:-1" @click="select(p.slug)" @keydown="keydown($event,index)">{{p.name}}</button>
+    </div>
+    <div v-for="p in items" :key="p.slug" :role="multiple?'tabpanel':undefined" :id="groupId+'-panel-'+p.slug" :aria-labelledby="multiple?groupId+'-tab-'+p.slug:undefined" :hidden="multiple&&selected!==p.slug" :tabindex="multiple?0:undefined" class="platform-panel">
+      <p v-if="platformStale(p.test)||p.test.status==='outdated'" class="tool-note">这份教程需要复测，工具界面可能已有变化。</p>
+      <p v-else-if="p.test.status==='unverified'" class="tool-note">这份操作步骤还未实测。</p>
+      <slot :name="p.slug" />
+    </div>
+  </section>
+</template>

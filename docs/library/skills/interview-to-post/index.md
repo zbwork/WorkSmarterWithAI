@@ -27,24 +27,31 @@ platforms:
     verified: null
     version: null
     prerequisites: 会在项目目录中放置文件，并使用 Codex
+resourceDescription: 从访谈记录中提炼要点，整理文章初稿。
+sidebar: false
+pageClass: library-resource
+resourceTitle: 访谈成稿
 ---
-# 把访谈记录变成文章初稿
 
-<ArticleSummary />
+<ResourceHeader />
 
-先列提纲，再写初稿，留下受访者真正说过的话。
+## 如何使用
 
-下面的文字与任务页共用同一份源文件。
+复制下面的提示词，粘贴到 AI 对话框。先用示例试一下，再换成自己的材料。
 
-<PromptBox src="interview-to-post" part="提示词 1" />
+## 提示词
 
-<PromptBox src="interview-to-post" part="提示词 2" />
+<PromptBox src="interview-to-post" part="提示词 1" copy-label="复制提示词" />
 
-<PromptBox src="interview-to-post" part="提示词 3" />
+::: details 后续追问与修正
 
-::: details 给懂行的人
-prompt.md 保存任务里的原始提示词。各段分别完成输入、追问或修正，修改前请对照任务中的示例和检查步骤。
+<PromptBox src="interview-to-post" part="提示词 2" copy-label="复制提示词" />
+
+<PromptBox src="interview-to-post" part="提示词 3" copy-label="复制提示词" />
+
 :::
+
+使用结果前，请核对内容是否符合原始材料。
 
 <UsedIn />
 

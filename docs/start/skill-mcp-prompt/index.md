@@ -1,5 +1,6 @@
 ---
 title: 提示词、Skill、MCP，到底是什么？
+sidebarTitle: 常见词语解释
 description: 先分清“说一句话”“照着方法做”和“连接其他工具”。
 kind: guide
 difficulty: 入门

@@ -4,11 +4,11 @@ import readline from 'node:readline/promises'
 import {root,today,readArticles} from './content.mjs'
 import {contentConfig as c} from '../content.config.ts'
 const args=process.argv.slice(2),[type,slug]=args
-const templates={task:'task',lesson:'lesson',skill:'library-skill',app:'library-app',review:'review'}
-if(!templates[type]||!slug||! /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug)){console.log('用法：pnpm new task|lesson|skill|app|review english-slug\n任务：--scenario office --stage meeting；生活场景不需要 stage。');process.exit(args.includes('--help')?0:1)}
+const templates={task:args.includes('--multi-tool')?'task-multi-tool':'task',lesson:'lesson',skill:'library-skill',app:'library-app',review:'review'}
+if(!templates[type]||!slug||! /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug)){console.log('用法：pnpm new task|lesson|skill|app|review english-slug\n任务：--scenario office --stage meeting；生活场景不需要 stage。多工具任务加 --multi-tool。');process.exit(args.includes('--help')?0:1)}
 const option=name=>args[args.indexOf('--'+name)+1];let scenario=args.includes('--scenario')?option('scenario'):'',stage=args.includes('--stage')?option('stage'):''
 if(type==='task'){
- if(!scenario&&process.stdin.isTTY){const rl=readline.createInterface({input:process.stdin,output:process.stdout});console.log(c.scenarios.map(s=>s.id+'：'+s.name).join('\n'));scenario=await rl.question('场景 id：');const choice=c.scenarios.find(s=>s.id===scenario);if(choice?.stages.length){console.log(choice.stages.map(s=>s.slug+'：'+s.name).join('\n'));stage=await rl.question('环节 slug：')}rl.close()}
+ if(!scenario&&process.stdin.isTTY){const rl=readline.createInterface({input:process.stdin,output:process.stdout});console.log([...c.scenarioGroups].sort((a,b)=>a.order-b.order).map(g=>g.name+'\n'+c.scenarios.filter(s=>g.groups.includes(s.group)).sort((a,b)=>a.order-b.order).map(s=>'  '+s.id+'：'+s.name).join('\n')).join('\n\n'));scenario=await rl.question('场景 id：');const choice=c.scenarios.find(s=>s.id===scenario);if(choice?.stages.length){console.log(choice.stages.map(s=>s.slug+'：'+s.name).join('\n'));stage=await rl.question('环节 slug：')}rl.close()}
  const selected=c.scenarios.find(s=>s.id===scenario);if(!selected||(selected.stages.length?!selected.stages.some(s=>s.slug===stage):Boolean(stage)))throw Error('请选择配置中存在的场景和环节；可使用 --scenario / --stage')
 }
 const dir={task:'tasks',lesson:'start',skill:'library/skills',app:'library/apps',review:'reviews'}[type],target=path.join(root,'docs',dir,slug,'index.md')

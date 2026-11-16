@@ -14,3 +14,18 @@ test('技能库反查多个场景任务，草稿不会泄露',()=>{const e=rows.
 test('拆分工具后保留两次聊天实测，技能导入仍未实测',()=>{assert.equal(task.platforms.doubao.status,'active');assert.equal(rows.find(a=>a.lesson===1).platforms.doubao.status,'active');const skill=rows.find(a=>a.url==='/tasks/task-brief/');assert.equal(skill.platforms.doubao,undefined);assert.equal(skill.platforms['doubao-work'].status,'unverified');assert.equal(skill.platforms.zhiban.status,'planned')})
 test('提取的提示词逐字等于 v0.2 原文',()=>{for(const [old,id]of [['workflows/meeting-actions','meeting-to-todo'],['workflows/interview-to-post','interview-to-post'],['apps/review-feedback','review-feedback']]){const raw=execFileSync('git',['show','04e2313:docs/'+old+'/index.md'],{encoding:'utf8'});const originals=[...matter(raw).content.matchAll(/<PromptBox>\s*([\s\S]*?)\s*<\/PromptBox>/g)].map(m=>m[1]);originals.forEach((p,i)=>assert.equal(resolvePrompt(id,'提示词 '+(i+1)),p))}})
 test('搜索包含正文、中文场景环节和提取的提示词，不含跳转页',()=>{const index=MiniSearch.loadJSON(buildSearchIndex(),searchOptions);for(const q of ['会议','小林','开会'])assert.ok(index.search(q).some(r=>r.id===task.url),q);assert.ok(index.search('运营').some(r=>r.id==='/tasks/review-feedback/'));assert.equal(index.search('页面已迁移').length,0);assert.ok(index.search('先问清楚').some(r=>r.id==='/tasks/task-brief/'))})
+
+test('场景入口按目录顺序打开首篇公开任务，并保留共享文章的场景',async()=>{
+ const {scenarioTarget,scenarioStages}=await import('../docs/.vitepress/theme/scenario-navigation.mjs')
+ const scenario={id:'role',stages:[{slug:'first'},{slug:'second'}]}
+ const article=(url,stage,order,extra={})=>({url,contentType:'task',scenarios:[{scenario:'role',stage}],order,...extra})
+ const entries=[article('/later/','second',1),article('/draft/','first',1,{draft:true}),article('/old/','first',2,{status:'deprecated'}),article('/b/','first',9),article('/a/','first',3)]
+ assert.equal(scenarioTarget(scenario,entries),'/a/?scenario=role')
+ assert.deepEqual(scenarioStages(scenario,entries).map(g=>g.tasks.map(a=>a.url)),[['/a/','/b/'],['/later/']])
+ const {contentConfig}=await import('../content.config.ts')
+ for(const id of ['office','hr']){
+  const scene=contentConfig.scenarios.find(s=>s.id===id)
+  assert.ok(scene)
+  assert.equal(scenarioTarget(scene,[task]),task.url+'?scenario='+id)
+ }
+})

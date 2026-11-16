@@ -39,16 +39,21 @@ platforms:
     verified: null
     version: null
     prerequisites: 会复制、粘贴和点击按钮
+resourceDescription: 先补齐目标与限制，再整理任务说明。
+sidebar: false
+pageClass: library-resource
+resourceTitle: 需求澄清
 ---
-# 让 AI 先问清楚你要什么
 
-<ArticleSummary />
+<ResourceHeader />
 
-先让 AI 问清楚，再动手，省得写完重来。
+## 如何使用
 
-这是可下载的技能包。导入和调用尚未实测，先看对应任务中的步骤。
+下载并解压技能包，阅读其中的 SKILL.md，再按所用工具的说明导入。导入和调用尚未实测，使用前请自行核对。
 
-[下载技能包](/downloads/task-brief.zip)
+## 获取技能
+
+<Download file="/downloads/task-brief.zip" />
 
 ## 技能说明书
 
@@ -77,7 +82,7 @@ description: 先逐个询问三个关键问题，再根据用户回答起草通�
 
 :::
 
-::: details 给懂行的人
+::: details 补充说明
 SKILL.md 先询问缺少的信息，再整理任务要求；不知道的内容留空。提示词文件提供可复制的对话版本。普通聊天与技能导入需要分别验证。
 :::
 

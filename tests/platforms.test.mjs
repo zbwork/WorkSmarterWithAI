@@ -58,3 +58,13 @@ test('过期逐平台检查，仍有新实测平台时不显示全篇警告',()=
  assert.deepEqual(stalePlatforms([a],now).map(x=>x.slug),['doubao']);assert.equal(allPlatformsStale(a,now),false)
  a.platforms.codex.verified='2026-01-01';assert.equal(allPlatformsStale(a,now),true)
 })
+
+test('只给有教程的工具提供切换，空工具保留证据但不能被 URL 选中',async()=>{
+ const {readablePlatforms}=await import('../docs/.vitepress/theme/content-model.mjs')
+ const records={doubao:p(),codex:p('active','进阶',today()),workbuddy:p('planned'),'doubao-work':{...p('unsupported'),reason:'不支持'}}
+ const visible=readablePlatforms(Object.keys(records),records).map(x=>x.slug)
+ assert.deepEqual(visible,['doubao','codex'])
+ assert.equal(choosePlatform(visible,'workbuddy','codex'),'codex')
+ assert.equal(readablePlatforms(['doubao'],records).length,1)
+ assert.equal(readablePlatforms(['workbuddy'],records).length,0)
+})

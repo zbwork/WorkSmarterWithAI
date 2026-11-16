@@ -21,20 +21,23 @@ platforms:
     verified: null
     version: null
     prerequisites: 会复制、粘贴和点击按钮
+resourceDescription: 整理商品评论中的喜好与问题。
+sidebar: false
+pageClass: library-resource
+resourceTitle: 评论分类
 ---
-# 把商品评论分成喜欢和不满意
 
-<ArticleSummary />
+<ResourceHeader />
 
-把零散评论分成“喜欢什么”和“哪里不满意”。
+## 如何使用
 
-下面的文字与任务页共用同一份源文件。
+复制下面的提示词，粘贴到 AI 对话框。先用示例试一下，再换成自己的材料。
 
-<PromptBox src="review-feedback" part="提示词 1" />
+## 提示词
 
-::: details 给懂行的人
-prompt.md 保存任务里的原始提示词。各段分别完成输入、追问或修正，修改前请对照任务中的示例和检查步骤。
-:::
+<PromptBox src="review-feedback" part="提示词 1" copy-label="复制提示词" />
+
+使用结果前，请核对内容是否符合原始材料。
 
 <UsedIn />
 

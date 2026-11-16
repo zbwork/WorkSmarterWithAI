@@ -12,6 +12,8 @@
 
 ## 场景、环节和任务
 
+- 归类先看读者的目标：已有岗位中的日常任务归职场；从零做成一件事、按环节推进的任务归项目实战；日常生活问题归生活。项目用“做成什么”命名，不用“AI + 行业”。导航组名及其对应的场景 group 只在 content.config.ts 的 scenarioGroups 维护。
+
 - 分类、环节、工具、级别和做法名称只在 content.config.ts 定义。新任务先选场景和环节；第一项是主场景，同一任务可属于多个场景，正文只维护一份。
 - 任务放 docs/tasks/<slug>/；基础课放 docs/start/<slug>/，按 lesson 排序；资源放 docs/library/skills|workflows|apps/<id>/；独立评测放 docs/reviews/。
 - 标题从事情出发，如“把会议记录变成待办表”。每篇任务必须写“检查一下”，明确人名、数字、日期或引用要核对什么。
@@ -33,3 +35,7 @@
 - 图片随文章存 images/，工具-步骤命名；WebP、≤1600px、≤300KB、alt 必填。打码账号、电话、客户资料，不用设计图冒充截图。
 - 首页、侧栏、场景页只列已有已发布任务的分类；技能库可公开未验证资源并明确状态。跳转页不进搜索、站点地图和 llms。
 - 提交前 pnpm check 与 pnpm build；检查根路径、/WorkSmarterWithAI/ 子路径、桌面与 375px、旧链接、搜索及工具偏好。
+
+## 按简洁版式写 Markdown
+
+新手课和工作教程共用一套渲染，不需要单独开发页面。请先看 [Markdown 写作说明](templates/README.md)，选择 [单工具模板](templates/task.md)、[多工具模板](templates/task-multi-tool.md) 或 [新手课模板](templates/lesson.md)。多种做法连续写在 `::: platform <slug>` 段落中；网站自动生成简洁 Tab，只有一种做法时直接显示正文。工具实测记录默认折叠在文末。

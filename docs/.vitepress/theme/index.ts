@@ -1,5 +1,6 @@
 import ScenarioPage from './components/ScenarioPage.vue'
 import ScenarioCards from './components/ScenarioCards.vue'
+import ResourceHeader from './components/ResourceHeader.vue'
 import Library from './components/Library.vue'
 import UsedIn from './components/UsedIn.vue'
 import MethodBadge from './components/MethodBadge.vue'
@@ -26,4 +27,6 @@ import PlatformTestTable from './components/PlatformTestTable.vue'
 import PlatformName from './components/PlatformName.vue'
 import Glossary from './components/Glossary.vue'
 import './style.css'
-export default { extends:DefaultTheme, Layout, enhanceApp({app}) { for(const [name,component] of Object.entries({ScenarioPage,ScenarioCards,Library,UsedIn,MethodBadge,SearchPage,TaskChips,RedirectPage,PlatformTabs,PlatformBadges,LevelBadge,Term,PlatformTestTable,PlatformName,Glossary,PromptBox,ArticleSummary,Home,ArticleList,RecentUpdates,Downloads,Download,RatingTable,VideoEmbed,Clip})) app.component(name,component) } }
+import './manual.css'
+import './library.css'
+export default { extends:DefaultTheme, Layout, enhanceApp({app}) { for(const [name,component] of Object.entries({ScenarioPage,ScenarioCards,Library,ResourceHeader,UsedIn,MethodBadge,SearchPage,TaskChips,RedirectPage,PlatformTabs,PlatformBadges,LevelBadge,Term,PlatformTestTable,PlatformName,Glossary,PromptBox,ArticleSummary,Home,ArticleList,RecentUpdates,Downloads,Download,RatingTable,VideoEmbed,Clip})) app.component(name,component) } }

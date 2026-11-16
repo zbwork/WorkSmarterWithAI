@@ -2,12 +2,17 @@ export const contentConfig = {
   title: 'AI 提效指南',
   author: 'zbwork',
   repo: 'https://github.com/zbwork/WorkSmarterWithAI',
+  scenarioGroups: [
+    {id:'workplace',name:'职场',groups:['office','role'],order:1},
+    {id:'projects',name:'项目实战',groups:['project'],order:2},
+    {id:'life',name:'生活',groups:['life'],order:3}
+  ],
   scenarios: [
   {
     "id": "office",
-    "name": "职场通用",
+    "name": "通用能力",
     "group": "office",
-    "description": "从写材料、开会到处理表格，做好日常工作。",
+    "description": "不分岗位，人人都要做的事",
     "order": 1,
     "stages": [
       {
@@ -41,7 +46,7 @@ export const contentConfig = {
     "id": "hr",
     "name": "行政人事",
     "group": "role",
-    "description": "整理招聘、入职和活动资料。",
+    "description": "招人、办活动、管日常事务",
     "order": 2,
     "stages": [
       {
@@ -70,7 +75,7 @@ export const contentConfig = {
     "id": "media",
     "name": "新媒体运营",
     "group": "role",
-    "description": "把选题、写稿和发布串起来。",
+    "description": "想选题、写稿、做图、发布",
     "order": 3,
     "stages": [
       {
@@ -99,7 +104,7 @@ export const contentConfig = {
     "id": "commerce",
     "name": "电商运营",
     "group": "role",
-    "description": "整理商品信息，读懂买家的反馈。",
+    "description": "写详情、回客服、看评论",
     "order": 4,
     "stages": [
       {
@@ -128,7 +133,7 @@ export const contentConfig = {
     "id": "finance",
     "name": "财务",
     "group": "role",
-    "description": "整理票据和报表，辅助分析。",
+    "description": "整理票据和报表，辅助分析",
     "order": 5,
     "stages": [
       {
@@ -152,7 +157,7 @@ export const contentConfig = {
     "id": "teacher",
     "name": "教师",
     "group": "role",
-    "description": "准备课堂资料、练习和反馈。",
+    "description": "备课、出题、写评语",
     "order": 6,
     "stages": [
       {
@@ -174,9 +179,9 @@ export const contentConfig = {
   },
   {
     "id": "ai-app",
-    "name": "AI 应用开发",
+    "name": "做一个 AI 应用",
     "group": "project",
-    "description": "从想法、设计到开发、上线和运营。",
+    "description": "从想法到上线，用 AI 做出一个能用的应用",
     "order": 7,
     "stages": [
       {
@@ -207,38 +212,191 @@ export const contentConfig = {
     ]
   },
   {
-    "id": "study",
-    "name": "学习辅导",
-    "group": "life",
-    "description": "陪伴学习，理解问题。",
+    "id": "online-shop",
+    "name": "开一家网店",
+    "description": "从选品到第一笔订单",
+    "group": "project",
     "order": 8,
+    "stages": [
+      {
+        "slug": "selection",
+        "name": "选品",
+        "order": 1
+      },
+      {
+        "slug": "setup",
+        "name": "开店和装修",
+        "order": 2
+      },
+      {
+        "slug": "listing",
+        "name": "上架商品",
+        "order": 3
+      },
+      {
+        "slug": "promotion",
+        "name": "推广引流",
+        "order": 4
+      },
+      {
+        "slug": "service",
+        "name": "客服和复盘",
+        "order": 5
+      }
+    ]
+  },
+  {
+    "id": "media-account",
+    "name": "做一个自媒体账号",
+    "description": "从定位到稳定更新",
+    "group": "project",
+    "order": 9,
+    "stages": [
+      {
+        "slug": "positioning",
+        "name": "定位",
+        "order": 1
+      },
+      {
+        "slug": "content",
+        "name": "做内容",
+        "order": 2
+      },
+      {
+        "slug": "profile",
+        "name": "包装账号",
+        "order": 3
+      },
+      {
+        "slug": "growth",
+        "name": "发布和涨粉",
+        "order": 4
+      },
+      {
+        "slug": "monetization",
+        "name": "变现",
+        "order": 5
+      }
+    ]
+  },
+  {
+    "id": "online-course",
+    "name": "做一门线上课",
+    "description": "把你会的东西做成一门课",
+    "group": "project",
+    "order": 10,
+    "stages": [
+      {
+        "slug": "outline",
+        "name": "定主题和大纲",
+        "order": 1
+      },
+      {
+        "slug": "script",
+        "name": "写讲稿",
+        "order": 2
+      },
+      {
+        "slug": "production",
+        "name": "做课件和录制",
+        "order": 3
+      },
+      {
+        "slug": "launch",
+        "name": "上架",
+        "order": 4
+      },
+      {
+        "slug": "enrollment",
+        "name": "招生",
+        "order": 5
+      }
+    ]
+  },
+  {
+    "id": "local-store",
+    "name": "开一家实体小店",
+    "description": "开店前后的准备和宣传",
+    "group": "project",
+    "order": 11,
+    "stages": [
+      {
+        "slug": "research",
+        "name": "选址和调研",
+        "order": 1
+      },
+      {
+        "slug": "branding",
+        "name": "起店名做招牌",
+        "order": 2
+      },
+      {
+        "slug": "pricing",
+        "name": "定菜单和价格",
+        "order": 3
+      },
+      {
+        "slug": "opening",
+        "name": "开业宣传",
+        "order": 4
+      },
+      {
+        "slug": "operations",
+        "name": "日常经营",
+        "order": 5
+      }
+    ]
+  },
+  {
+    "id": "study",
+    "name": "孩子学习",
+    "group": "life",
+    "description": "陪孩子学，不替孩子做",
+    "order": 12,
     "stages": []
   },
   {
     "id": "health",
     "name": "健康",
     "group": "life",
-    "description": "看懂日常健康信息。",
-    "order": 9,
+    "description": "看懂报告和说明书，问诊前做好准备",
+    "order": 13,
+    "stages": []
+  },
+  {
+    "id": "meals",
+    "name": "一日三餐",
+    "description": "今天吃什么，交给 AI 出主意",
+    "group": "life",
+    "order": 14,
     "stages": []
   },
   {
     "id": "travel",
     "name": "出行",
     "group": "life",
-    "description": "准备出行资料和计划。",
-    "order": 10,
+    "description": "做攻略、看外文、排行程",
+    "order": 15,
     "stages": []
   },
   {
-    "id": "elders",
-    "name": "长辈用 AI",
+    "id": "affairs",
+    "name": "办事和维权",
+    "description": "看懂条款，写清楚诉求",
     "group": "life",
-    "description": "从日常小事开始用 AI。",
-    "order": 11,
+    "order": 16,
+    "stages": []
+  },
+  {
+    "id": "safety",
+    "name": "防骗和辨别",
+    "description": "认出假消息和 AI 骗局",
+    "group": "life",
+    "order": 17,
     "stages": []
   }
 ],
+  libraryCategories: [{id:'prompt',name:'提示词'},{id:'skill',name:'Skill'},{id:'workflow',name:'工作流'}],
   methodTypes: {skill:"Skill（技能）",workflow:"工作流",app:"AI 应用"},
   kinds: { guide: '教程', review: '评测', original: '自研' },
   levels: [

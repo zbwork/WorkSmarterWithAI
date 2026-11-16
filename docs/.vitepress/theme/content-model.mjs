@@ -20,3 +20,9 @@ export function allPlatformsStale(a,now=new Date()){
  return tested.length>0&&tested.every(p=>platformStatus(p,now)==='outdated')
 }
 export function choosePlatform(slugs,urlValue,preference){return [urlValue,preference,...platformList.map(p=>p.slug)].find(s=>slugs.includes(s))||slugs[0]||''}
+
+// Only tools with written instructions participate in the reader's switcher.
+// Pending/unsupported records remain available in the evidence table.
+export function readablePlatforms(slugs,records={}){
+ return platformList.filter(p=>slugs.includes(p.slug)&&['active','unverified','outdated'].includes(records?.[p.slug]?.status)).map(p=>({...p,test:records[p.slug]}))
+}

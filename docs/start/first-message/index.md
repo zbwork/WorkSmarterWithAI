@@ -1,5 +1,6 @@
 ---
 title: 第一次用 AI：发出第一条消息
+sidebarTitle: 第一次用 AI
 description: 找到输入框，发出一句话，再学会让它改短一点。
 kind: guide
 cost: 免费额度内
@@ -77,12 +78,6 @@ lesson: 1
 
 [豆包使用说明](/library/apps/doubao/)介绍普通聊天入口；技能导入另见[豆包工作](/library/apps/doubao-work/)。
 
-::: details 进阶玩法
-继续要求它改变语气或字数，每次只改一个要求，更容易看出差别。
-:::
 
-::: details 给懂行的人
-本页验证的是普通聊天。不能据此认定技能导入、调用也已通过。
-:::
 
 <PlatformTestTable />

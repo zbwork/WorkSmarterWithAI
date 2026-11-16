@@ -4,6 +4,7 @@ import { execFileSync } from 'node:child_process'
 import { zipSync, strToU8 } from 'fflate'
 import { root, walk, readArticles, today } from './content.mjs'
 import { isListed } from '../docs/.vitepress/theme/content-model.mjs'
+import {visibleScenarioGroups,scenarioStages} from '../docs/.vitepress/theme/scenario-navigation.mjs'
 import {expandPrompts} from './prompts.mjs'
 import { contentConfig as c } from '../content.config.ts'
 const allArticles=readArticles();const articles=allArticles.filter(isListed);const publicDir=path.join(root,'docs/public')
@@ -11,7 +12,7 @@ const site=(process.env.SITE_URL||'').replace(/\/$/,'')
 function write(file,content){fs.mkdirSync(path.dirname(file),{recursive:true});fs.writeFileSync(file,content)}
 const link=a=>(site||'')+a.url
 const tasks=articles.filter(a=>a.contentType==='task')
-const index='# AI 提效指南\n\n新手跟着做就会，懂行的人也有干货。\n\n'+c.scenarios.map(s=>{const rows=tasks.filter(a=>a.scenarios.some(r=>r.scenario===s.id));if(!rows.length)return '';return '## '+s.name+'\n\n'+(s.stages.length?s.stages:[{slug:'',name:'任务'}]).map(stage=>{const items=rows.filter(a=>a.scenarios.some(r=>r.scenario===s.id&&(r.stage||'')===stage.slug));return items.length?'### '+stage.name+'\n'+items.map(a=>`- [${a.title}](${link(a)})：${a.description} [${a.status}]`).join('\n')+'\n':''}).join('\n')}).filter(Boolean).join('\n')+'\n## 新手课与技能库\n'+articles.filter(a=>a.contentType!=='task').map(a=>`- [${a.title}](${link(a)})：${a.description}`).join('\n')+'\n'
+const index='# AI 提效指南\n\n新手跟着做就会，懂行的人也有干货。\n\n'+visibleScenarioGroups(c,tasks).map(group=>'## '+group.name+'\n\n'+group.items.map(s=>'### '+s.name+'\n\n'+scenarioStages(s,tasks).map(stage=>(stage.name?'#### '+stage.name+'\n':'')+stage.tasks.map(a=>`- [${a.title}](${link(a)})：${a.description} [${a.status}]`).join('\n')).join('\n\n')).join('\n\n')).join('\n\n')+'\n\n## 新手课与技能库\n'+articles.filter(a=>a.contentType!=='task').map(a=>`- [${a.title}](${link(a)})：${a.description}`).join('\n')+'\n'
 const full='# AI 提效指南 · 正文快照\n\n生成日期：'+today()+'\n\n'+articles.map(a=>`## ${a.title}\n\n原文：${link(a)}\n验证状态：${a.status}；实测日期：${a.verified||'未实测'}；费用：${a.cost}\n\n${expandPrompts(a.body)}`).join('\n\n---\n\n')
 write(path.join(publicDir,'llms.txt'),index);write(path.join(publicDir,'llms-full.txt'),full)
 fs.rmSync(path.join(publicDir,'raw'),{recursive:true,force:true})

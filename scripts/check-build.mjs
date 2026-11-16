@@ -2,12 +2,13 @@ import fs from 'node:fs'
 import path from 'node:path'
 import {unzipSync,strFromU8} from 'fflate'
 import {root,readArticles,walk} from './content.mjs'
+import {readablePlatforms} from '../docs/.vitepress/theme/content-model.mjs'
 import {contentConfig as c} from '../content.config.ts'
 const dist=path.join(root,'docs/.vitepress/dist')
 const fail=m=>{throw Error(m)}
 for(const a of readArticles()){
  const html=fs.readFileSync(path.join(dist,a.url,'index.html'),'utf8')
- if(!html.includes(a.title)||!html.includes('article-meta')||html.indexOf('<h1')>html.indexOf('article-meta'))fail('Article rendering missing: '+a.url)
+ if(!html.includes(a.resourceTitle||a.title)||!html.includes('article-meta')||html.indexOf('<h1')>html.indexOf('article-meta'))fail('Article rendering missing: '+a.url)
  if(!fs.existsSync(path.join(dist,'raw',a.url,'index.md')))fail('Missing raw Markdown: '+a.url)
 }
 for(const s of c.scenarios){const exists=readArticles().some(a=>a.contentType==='task'&&!a.draft&&a.status!=='deprecated'&&a.scenarios.some(r=>r.scenario===s.id));const file=path.join(dist,'scenarios',s.id,'index.html');if(exists?!fs.existsSync(file):fs.existsSync(file))fail('Scenario route visibility: '+s.id)}
@@ -19,8 +20,9 @@ console.log('Static routes, article rendering, raw Markdown and downloadable arc
 const assets=fs.readdirSync(path.join(dist,'assets'));if(assets.some(a=>/mermaid|cytoscape/i.test(a)))fail('Unused diagram library is still bundled')
 
 const skillHTML=fs.readFileSync(path.join(dist,'tasks/task-brief/index.html'),'utf8')
-for(const slug of c.apps.filter(p=>p.skills===true||p.skillCandidate).map(p=>p.slug)){if(!skillHTML.includes('platform-0-panel-'+slug))fail('Missing SSR platform panel: '+slug)}
-for(const text of ['形成','在已安装列表确认','即将补充'])if(!skillHTML.includes(text))fail('Platform slot missing from SSR: '+text)
+const skill=readArticles().find(a=>a.url==='/tasks/task-brief/')
+for(const {slug} of readablePlatforms(Object.keys(skill.platforms),skill.platforms)){if(!skillHTML.includes('platform-0-panel-'+slug))fail('Missing SSR platform panel: '+slug)}
+for(const text of ['形成','在已安装列表确认'])if(!skillHTML.includes(text))fail('Platform slot missing from SSR: '+text)
 for(const url of ['index.html','search/index.html','scenarios/index.html','library/index.html']){
  const html=fs.readFileSync(path.join(dist,url),'utf8');if(html.includes('article-card')&&html.includes('href="'+(process.env.SITE_BASE||'/')+'skills/task-brief/"'))fail('Draft leaked into default list: '+url)
 }
@@ -28,7 +30,11 @@ const full=fs.readFileSync(path.join(dist,'llms-full.txt'),'utf8')
 if(!full.includes('::: platform codex')||!full.includes('把下面的虚构访谈'))fail('llms-full lost a platform instruction')
 const skillFiles=unzipSync(fs.readFileSync(path.join(dist,'downloads/task-brief.zip')))
 if(!skillFiles['task-brief/SKILL.md'])fail('Skill package has no SKILL.md')
-console.log('All platform panels are server-rendered; default lists exclude drafts; skill package verified.')
+if(skillHTML.includes('role="tab" id="platform-0-tab-zhiban"'))fail('Pending tool is exposed as a tab')
+const single=fs.readFileSync(path.join(dist,'tasks/meeting-actions/index.html'),'utf8')
+if(single.includes('role="tablist"')||single.includes('你用哪个工具'))fail('Single tool must render directly')
+if(!single.includes('platform-0-panel-doubao'))fail('Single tool instructions missing')
+console.log('Written tool panels are server-rendered; single tool renders directly; draft and archive checks passed.')
 
 const base=process.env.SITE_BASE||'/'
 for(const file of walk(dist).filter(f=>f.endsWith('.html'))){

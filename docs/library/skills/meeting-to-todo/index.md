@@ -25,29 +25,38 @@ platforms:
     model: 页面未显示
     input: 文中虚构练习材料
     notes: 一次完整输入，追加一次修正，详见上方记录
+resourceDescription: 提取待办事项、负责人和完成时间。
+sidebar: false
+pageClass: library-resource
+resourceTitle: 会议待办整理
 ---
-# 把会议记录变成待办表
 
-<ArticleSummary />
+<ResourceHeader />
 
-复制几句会议记录，得到一张“谁做什么、什么时候做”的表。
+## 如何使用
 
-下面的文字与任务页共用同一份源文件。
+复制下面的提示词，粘贴到 AI 对话框。先用示例试一下，再换成自己的材料。
 
-<PromptBox src="meeting-to-todo" part="提示词 1" />
+## 提示词
 
-<PromptBox src="meeting-to-todo" part="提示词 2" />
+<PromptBox src="meeting-to-todo" part="提示词 1" copy-label="复制提示词" />
 
-::: details 给懂行的人
-prompt.md 保存任务里的原始提示词。各段分别完成输入、追问或修正，修改前请对照任务中的示例和检查步骤。
+::: details 后续追问与修正
+
+<PromptBox src="meeting-to-todo" part="提示词 2" copy-label="复制提示词" />
+
 :::
 
-## 原任务中的实测
+使用结果前，请核对负责人和时间。
+
+<UsedIn />
+
+::: details 查看原任务中的真实截图
 
 [会议待办的输入、修正和完整记录](/tasks/meeting-actions/)
 
 ![豆包修正后的真实待办表，来自会议待办任务](/tasks/meeting-actions/images/doubao-corrected.webp)
 
-<UsedIn />
+:::
 
 <PlatformTestTable />
