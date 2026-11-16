@@ -1,0 +1,21 @@
+name: 工具已失效
+description: 报告下线、接口或版本变化
+body:
+  - type: input
+    id: page
+    attributes:
+      label: 相关页面或资源链接
+    validations:
+      required: true
+  - type: textarea
+    id: details
+    attributes:
+      label: 具体情况
+      description: 请说明场景、工具版本、步骤与预期结果，不提交真实密钥或客户信息。
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: 可复核资料
+      description: 官方来源、脱敏截图或最小复现样例。

@@ -1,0 +1,36 @@
+name: Package resources
+on:
+  push:
+    branches: [main]
+    paths: ['skills/**', 'workflows/**', 'handbook-skill/**', 'docs/**', 'scripts/generate.mjs']
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: downloads-release
+  cancel-in-progress: false
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm check && pnpm generate
+        env:
+          SITE_URL: https://zbwork.github.io/WorkSmarterWithAI
+      - name: Publish downloadable files
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if ! gh release view downloads-latest >/dev/null 2>&1; then
+            gh release create downloads-latest --target "$GITHUB_SHA" --title "下载资源（自动更新）" --notes "以包内说明、版本及验证状态为准。" --latest=false
+          fi
+          gh release upload downloads-latest docs/public/downloads/*.zip --clobber
+          gh release edit downloads-latest --notes "源提交：$GITHUB_SHA。下载文件随内容更新，验证状态以包内说明为准。"

@@ -1,0 +1,16 @@
+node_modules/
+docs/.vitepress/cache/
+docs/.vitepress/dist/
+docs/public/downloads/
+docs/public/raw/
+docs/public/llms*.txt
+docs/public/feed.xml
+docs/public/downloads-manifest.json
+.env
+.env.*
+!.env.example
+.DS_Store
+artifacts/
+docs/.vitepress/.temp/
+docs/public/changelog.json
+stale-report.md

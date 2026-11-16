@@ -1,0 +1,61 @@
+# AI 提效指南 · WorkSmarterWithAI
+
+按行业整理的 Skill、工作流和 AI 应用教程。公开验证状态、费用与版本，提供可以复用的源文件。
+
+[总览筛选](https://zbwork.github.io/WorkSmarterWithAI/catalog/) · [在线阅读](https://zbwork.github.io/WorkSmarterWithAI/) · [参与贡献](CONTRIBUTING.md) · [设计文档](design/设计文档.md)
+
+当前首批 6 篇为方法示例，均标记“待实测”，没有虚构的效果、产品评分或兼容性承诺。后续按统一标准补充工具端实测记录。
+
+## 本地运行
+
+需要 Node.js 22.18+（推荐 Node 22 LTS）和 pnpm 10。
+
+```bash
+pnpm install
+pnpm dev
+```
+
+## 维护内容
+
+```bash
+pnpm new skill guide your-slug   # 新建文章
+pnpm img path/to/image.png       # 生成 WebP，保留原文件
+pnpm check                      # 字段、链接、图片、密钥模式与回归检查
+pnpm check:links                # 包含外部链接的网络检查
+pnpm check:stale                # 复测清单
+pnpm build                      # 生成资源与生产站点
+pnpm preview                    # 预览构建结果
+```
+
+- 正文在 `docs/skills/`、`docs/workflows/`、`docs/apps/`，每篇一个文件夹。
+- 分类、署名、仓库地址在 `content.config.ts`。
+- 教程、评测、自研模板在 `templates/`。
+- 自研资源在 `skills/`、`workflows/`；手册查询 Skill 在 `handbook-skill/`。
+- `verified` 只写真实实测日期；未测试内容用 `status: unverified`。
+- 发布评测前必须填写用例、版本、实测日期、五维分数与利益披露。
+
+## 已实现
+
+VitePress 文档阅读、中文全文搜索、自动侧边栏、组合筛选与 URL 分享、行业与工具聚合页、实测状态和过期提示、Markdown 原文与复制、更新记录、下载打包、RSS、llms 索引及全文、图片放大、视频懒加载、Mermaid 图表、开源协作模板与 CI。
+
+## 部署
+
+### GitHub Pages
+
+仓库的 Settings → Pages → Source 选择 **GitHub Actions**。`main` 推送后构建与部署到 `https://zbwork.github.io/WorkSmarterWithAI/`。工作流自动配置 `SITE_URL`、`SITE_BASE`。如果尚未开启 Pages，部署任务会提示配置。
+
+### Cloudflare Pages / Vercel
+
+连接本仓库，构建命令 `pnpm build`，输出目录 `docs/.vitepress/dist`，Node 22.18+。设置 `SITE_URL` 为真实站点地址，根域部署设置 `SITE_BASE=/`。PR 预览由托管平台的 Git 集成提供，本仓库不会声称 CI 自动生成不存在的预览链接。
+
+`SITE_URL` 用于 RSS 和站点链接；未配置时本地不生成 RSS，避免发出错误的正式地址。`SITE_BASE` 用于子路径部署。环境变量由命令行或托管平台提供，不自动读取 `.env`。
+
+## 验证与发布边界
+
+自动检查只能发现结构、链接和部分文件问题，不能证明 AI 的输出质量。网站可用与教程完成实测是两件分别记录的事。商业合作须在文章顶部披露。
+
+## 许可证
+
+- 原创正文： [CC BY 4.0](LICENSE)。
+- 网站代码、原创 Skill 与工作流： [MIT](LICENSE-CODE)。
+- 第三方资源保留各自许可证。下载包内分别注明代码与正文快照的授权。

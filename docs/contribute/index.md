@@ -1,0 +1,44 @@
+---
+title: 参与贡献
+---
+# 一起把手册写得更有用
+
+欢迎纠错、推荐工具、提交实际测试记录，以及分享可复用的工作方法。
+
+## 提交问题
+
+[内容纠错、投稿推荐、求评测或工具失效](https://github.com/zbwork/WorkSmarterWithAI/issues/new/choose)。请提供具体页面、失败步骤、工具版本和可脱敏复现的材料。
+
+## 写一篇文章
+
+```bash
+pnpm new skill guide your-slug
+pnpm dev
+```
+
+新文件生成在 `docs/skills/your-slug/index.md`。先保留 `status: unverified`，完成测试后再填写 `verified` 和 `version`。
+
+- 一篇文章一个目录，图片放在同目录 `images/` 下。
+- 标题讲任务，正文先展示目标产物和验收标准。
+- 行业、工具等取值在根目录 `content.config.ts` 中统一维护。
+- 评测须有五维分数、用例和测试记录；无法验证的内容不写成亲测。
+- 原创包必须带许可证和使用说明；第三方代码保留原许可证。
+
+## 提交前检查
+
+```bash
+pnpm check
+pnpm build
+```
+
+检查包括字段、日期、内部链接、图片和常见密钥模式。外部链接检查可运行 `pnpm check:links`；网络限制导致的错误需人工核对。
+
+## 图片与视频
+
+图片使用 WebP，宽度不超过 1600px，大小不超过 300KB，并写明 alt。`pnpm img 图片路径` 会在原文件旁输出 WebP，不删除原图，确认效果后再修改正文引用。
+
+长视频可用 `VideoEmbed` 嵌入 B 站或 YouTube，点击后才加载播放器；短演示用 `Clip` 引用外部存储。截图与导出文件先移除账号、客户信息和密钥。
+
+## 合并与署名
+
+在文章的 `authors` 字段填写署名。提交 Pull Request 后运行自动检查；维护者审核内容、授权和复现记录后合并。提交内容默认按项目对应的正文或代码许可证授权。

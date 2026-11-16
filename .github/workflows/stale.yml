@@ -1,0 +1,31 @@
+name: Weekly verification reminder
+on:
+  schedule:
+    - cron: '0 1 * * 1'
+  workflow_dispatch:
+permissions:
+  contents: read
+  issues: write
+jobs:
+  stale:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: node scripts/check-stale.mjs --output
+      - uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const title = '手册复测待办（自动更新）';
+            const body = fs.readFileSync('stale-report.md', 'utf8');
+            const issues = await github.paginate(github.rest.issues.listForRepo, {...context.repo, state: 'open', creator: 'github-actions[bot]'});
+            const existing = issues.find(i => i.title === title);
+            const hasItems = body.includes('- [ ]');
+            if (existing) await github.rest.issues.update({...context.repo, issue_number: existing.number, body, state: hasItems ? 'open' : 'closed'});
+            else if (hasItems) await github.rest.issues.create({...context.repo, title, body});
