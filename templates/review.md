@@ -4,39 +4,69 @@ description: 一句话说清做完能得到什么
 type: {{TYPE}}
 kind: review
 industry: [通用]
-tools: [豆包]
-difficulty: 入门
+tools: []
 cost: 免费额度内
-costNote: 先用免费额度
-audience: 第一次用 AI 的人
-duration: 请填写预计用时
+audience: 请说明适合谁
+time: 约 10 分钟（不含登录）
 authors: [{{AUTHOR}}]
 created: {{DATE}}
 updated: {{DATE}}
-verified: null
-status: unverified
 sponsored: false
 {{FORMAT}}
 scores: {效果: null, 易用: null, 稳定: null, 成本: null, 生态: null}
 rating: null
 testCase: null
+platforms:
+  doubao:
+    level: 入门
+    status: unverified
+    verified: null
+    version: null
+    prerequisites: 请填写需要会什么
 ---
 # 请填写任务标题
 
 <ArticleSummary />
 
-<!-- 试跑前保留 unverified；试跑后补日期、环境、真实截图和遇到的问题。 -->
+一句话说清要解决什么事。
 
-## 评分表
+## 做完是什么样
 
-## 测试方法
+<!-- 未实测不写成真实输出；已实测附真实截图。 -->
 
-## 实测过程
+::: platform doubao
 
-## 优点与限制
+## 1. 打开工具
 
-## 价格
+写清打开哪个页面、点哪里。
 
-## 替代方案对比
+## 2. 跟着做
 
-## 利益披露
+<PromptBox>
+
+请填写可直接复制的完整练习。
+
+</PromptBox>
+
+## 3. 检查结果
+
+待补截图：输入和结果。
+
+:::
+
+
+::: details 进阶玩法
+怎么更换材料、修改方法或组合步骤。
+:::
+
+::: details 给懂行的人
+方法原理、版本差异、失败案例与替代方案。命令行只放这里或 Codex 标签内。
+:::
+
+## 测试记录
+
+<PlatformTestTable />
+
+## 评分与费用
+
+<!-- 评测须先实测，补充版本、用例、评分和利益披露后才能通过检查。 -->

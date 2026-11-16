@@ -1,10 +1,10 @@
 # AI 提效指南 · WorkSmarterWithAI
 
-给第一次用 AI 的人：打开工具，复制一句话，照着完成一个小任务。开源、持续更新。
+新手跟着做就会，懂行的人也有干货。Skill（技能）、工作流、AI 应用，按平台和级别找到适合的方法。开源、持续更新。
 
 [全部教程](https://zbwork.github.io/WorkSmarterWithAI/catalog/) · [在线阅读](https://zbwork.github.io/WorkSmarterWithAI/) · [参与贡献](CONTRIBUTING.md) · [设计文档](design/设计文档.md)
 
-首批 6 篇内容已改为新手教程与词语解释。会议待办和第一次聊天教程附豆包真实回答；会议示例保留两处错误及修正截图。其他未试跑文章在文末说明。预计时间不等于真实新手计时。
+现有 6 篇内容完成 v0.2 迁移，默认列出 5 篇；task-brief 技能包暂为草稿，等待至少两个平台实测通过。会议待办和第一次聊天教程附豆包真实回答；会议示例保留两处错误及修正截图。其他未试跑文章在文末说明。预计时间不等于真实新手计时。
 
 ## 本地运行
 
@@ -18,7 +18,7 @@ pnpm dev
 ## 维护内容
 
 ```bash
-pnpm new prompt guide your-slug   # 新建文章
+pnpm new workflow guide your-slug   # 新建文章
 pnpm img path/to/image.png       # 生成 WebP，保留原文件
 pnpm check                      # 字段、链接、图片、密钥模式与回归检查
 pnpm check:links                # 包含外部链接的网络检查
@@ -27,11 +27,11 @@ pnpm build                      # 生成资源与生产站点
 pnpm preview                    # 预览构建结果
 ```
 
-- 正文在 `docs/prompts/`、`docs/skills/`、`docs/workflows/`、`docs/apps/`，每篇一个文件夹。
+- 正文在 `docs/skills/`、`docs/workflows/`、`docs/apps/`，每篇一个文件夹。
 - 分类、署名、仓库地址在 `content.config.ts`。
 - 教程、评测、自研模板在 `templates/`。
 - 自研资源在 `skills/`、`workflows/`；手册查询 Skill 在 `handbook-skill/`。
-- `verified` 只写真实实测日期；未测试内容用 `status: unverified`。
+- 平台级 `verified` 只写真实实测日期；未测试平台用 `status: unverified`。文章状态、最低级别与最新实测日期自动派生。
 - 发布评测前必须填写用例、版本、实测日期、五维分数与利益披露。
 
 ## 已实现
@@ -59,3 +59,7 @@ VitePress 文档阅读、中文全文搜索、自动侧边栏、组合筛选与 
 - 原创正文： [CC BY 4.0](LICENSE)。
 - 网站代码、原创 Skill 与工作流： [MIT](LICENSE-CODE)。
 - 第三方资源保留各自许可证。下载包内分别注明代码与正文快照的授权。
+
+## v0.2 待补
+
+[待实测清单](design/待实测清单.md)列出平台与截图缺口。[设计图](design/mockups/v0.2-design.png)只用于布局参考。新增平台标签、全站偏好、术语解释和三级路线；本轮没有新增首批文章，也没有声称新的平台已测试通过。
