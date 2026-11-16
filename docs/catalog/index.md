@@ -1,5 +1,6 @@
 ---
 layout: page
-title: 总览筛选
+sidebar: false
+title: 全部教程
 ---
 <Catalog />

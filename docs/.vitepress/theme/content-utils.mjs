@@ -30,3 +30,9 @@ export function filterQuery(f) {
  for(const [k,v] of Object.entries(f)) if(v) p.set(k,v===true?'1':String(v))
  return p.toString()
 }
+
+// Options reflect the other selections, so choosing a visible option never leads to zero results.
+export function availableOptions(articles, filters, key, options) {
+ const candidates=filterArticles(articles,{...filters,[key]:''})
+ return options.filter(o=>o.value===filters[key]||candidates.some(a=>Array.isArray(a[key])?a[key].includes(o.value):a[key]===o.value))
+}

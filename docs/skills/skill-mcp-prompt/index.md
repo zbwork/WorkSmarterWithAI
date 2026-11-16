@@ -1,54 +1,60 @@
 ---
-title: Skill、MCP 和提示词包，分别用在哪里
-description: 先分清三种能力扩展，再判断你的任务需要哪一种。
+title: 提示词、Skill、MCP，到底是什么？
+description: 先分清“说一句话”“照着方法做”和“连接其他工具”。
 type: skill
 kind: guide
 industry: [通用, 开发]
 tools: [Claude Code, Codex]
 difficulty: 入门
-cost: 按所用工具计费
-tags: [任务拆解, 工作提效]
+cost: 免费
+costNote: 免费阅读
+audience: 已经会和 AI 聊天的人
+duration: 约 2 分钟读完
+order: 6
+tags: [新手, 工作提效]
 created: 2026-11-16
 updated: 2026-11-16
 verified: null
 status: unverified
 sponsored: false
-authors: [AI 提效指南贡献者]
+authors: [zbwork]
 format: skill
 ---
-# Skill、MCP 和提示词包，分别用在哪里
+# 提示词、Skill、MCP，到底是什么？
 
-当你看到“给 AI 增加能力”的教程，先确认它提供的是指令、可加载的技能包，还是外部服务连接。
+<ArticleSummary />
 
-## 三者有什么区别
+如果你只是想让 AI 帮忙写字、整理资料，现在会聊天就够了。下面三个词，遇到时再查。
 
-| 形式 | 主要作用 | 拿到文件后先看什么 |
-| --- | --- | --- |
-| 提示词包 | 提供可复用的任务指令 | 输入字段、输出要求、适用场景 |
-| Agent Skill | 按约定组织说明与辅助资源 | 目标工具、支持版本、安装说明 |
-| MCP 服务 | 提供工具或数据的协议接口 | 服务来源、权限范围、认证与运行方式 |
+## 提示词：你发给 AI 的话
 
-它们可以组合使用，但不能互相当作同一种安装包。
+例如：“把下面的会议记录整理成待办表。”它就是一句工作要求，复制到对话框就能用。
 
-## 准备工作
+先试试：[让 AI 先问清楚你要什么](/skills/task-brief/)。
 
-先写下你需要的是“固定方法”“读取某类数据”还是“执行外部操作”。如果只是规范输出格式，一段清晰提示词就能作为起点。
+## Skill：给 AI 的办事说明书
 
-## 操作步骤
+把做一件事的方法、参考资料，有时还有小程序，放在一起，交给支持它的 AI 工具使用。比如，一份按固定格式整理会议记录的说明书。
 
-1. 查看资源的原始仓库，确认目标工具和版本。
-2. 阅读包内文件与使用说明，不直接执行不明安装命令。
-3. 用非敏感样例运行一个最小任务。
-4. 记录实际输入输出、版本和失败情况。
+它和普通聊天消息的区别是：工具需要能读取这份说明书。具体怎么放进去，要看那份 Skill 的安装教程。不是把压缩包随便发给任意 AI 都能用。
 
-## 验收标准
+## MCP：让 AI 连接其他工具的一种方式
 
-资源能在目标工具里被正确识别；调用结果符合输入材料；不需要的外部权限没有被启用。具体兼容性以对应工具的官方说明与实测为准。
+例如，让 AI 从日历里读出今天的安排，或从文档工具里查找资料。连接前，要看清它能读取或修改哪些内容。
 
-## 进一步阅读
+## 现在该选哪个？
 
-[Agent Skills 规范](https://agentskills.io/specification) · [MCP 文档](https://modelcontextprotocol.io/docs/getting-started/intro)
+| 你想做的事 | 先试什么 |
+| --- | --- |
+| 改一段文字、整理几条记录 | 直接聊天，用一段提示词 |
+| 经常按同一套步骤做事 | 学会基础操作后，再了解 Skill |
+| 让 AI 读取日历等其他工具的数据 | 再了解 MCP |
 
-## 相关推荐
+本页只是词语解释，不需要安装任何东西。想动手，回到[新手第一课](/start/)。
 
-[任务简报提示词包](/skills/task-brief/)
+<details>
+<summary>想了解更多？看官方说明</summary>
+
+[Agent Skills 官方说明](https://agentskills.io/what-are-skills) · [MCP 官方介绍](https://modelcontextprotocol.io/docs/getting-started/intro)
+
+</details>

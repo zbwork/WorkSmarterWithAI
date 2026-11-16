@@ -1,10 +1,10 @@
 # AI 提效指南 · WorkSmarterWithAI
 
-按行业整理的 Skill、工作流和 AI 应用教程。公开验证状态、费用与版本，提供可以复用的源文件。
+给第一次用 AI 的人：打开工具，复制一句话，照着完成一个小任务。开源、持续更新。
 
-[总览筛选](https://zbwork.github.io/WorkSmarterWithAI/catalog/) · [在线阅读](https://zbwork.github.io/WorkSmarterWithAI/) · [参与贡献](CONTRIBUTING.md) · [设计文档](design/设计文档.md)
+[全部教程](https://zbwork.github.io/WorkSmarterWithAI/catalog/) · [在线阅读](https://zbwork.github.io/WorkSmarterWithAI/) · [参与贡献](CONTRIBUTING.md) · [设计文档](design/设计文档.md)
 
-当前首批 6 篇为方法示例，均标记“待实测”，没有虚构的效果、产品评分或兼容性承诺。后续按统一标准补充工具端实测记录。
+首批 6 篇内容已改为新手教程与词语解释。会议待办和第一次聊天教程附豆包真实回答；会议示例保留两处错误及修正截图。其他未试跑文章在文末说明。预计时间不等于真实新手计时。
 
 ## 本地运行
 
@@ -18,7 +18,7 @@ pnpm dev
 ## 维护内容
 
 ```bash
-pnpm new skill guide your-slug   # 新建文章
+pnpm new prompt guide your-slug   # 新建文章
 pnpm img path/to/image.png       # 生成 WebP，保留原文件
 pnpm check                      # 字段、链接、图片、密钥模式与回归检查
 pnpm check:links                # 包含外部链接的网络检查
@@ -27,7 +27,7 @@ pnpm build                      # 生成资源与生产站点
 pnpm preview                    # 预览构建结果
 ```
 
-- 正文在 `docs/skills/`、`docs/workflows/`、`docs/apps/`，每篇一个文件夹。
+- 正文在 `docs/prompts/`、`docs/skills/`、`docs/workflows/`、`docs/apps/`，每篇一个文件夹。
 - 分类、署名、仓库地址在 `content.config.ts`。
 - 教程、评测、自研模板在 `templates/`。
 - 自研资源在 `skills/`、`workflows/`；手册查询 Skill 在 `handbook-skill/`。
@@ -36,7 +36,7 @@ pnpm preview                    # 预览构建结果
 
 ## 已实现
 
-VitePress 文档阅读、中文全文搜索、自动侧边栏、组合筛选与 URL 分享、行业与工具聚合页、实测状态和过期提示、Markdown 原文与复制、更新记录、下载打包、RSS、llms 索引及全文、图片放大、视频懒加载、Mermaid 图表、开源协作模板与 CI。
+VitePress 文档阅读、中文全文搜索、自动侧边栏、组合筛选与 URL 分享、行业与工具聚合页、实测状态和过期提示、Markdown 原文与复制、更新记录、下载打包、RSS、llms 索引及全文、图片放大、视频懒加载、提示词一键复制、开源协作模板与 CI。
 
 ## 部署
 
@@ -52,7 +52,7 @@ VitePress 文档阅读、中文全文搜索、自动侧边栏、组合筛选与 
 
 ## 验证与发布边界
 
-自动检查只能发现结构、链接和部分文件问题，不能证明 AI 的输出质量。网站可用与教程完成实测是两件分别记录的事。商业合作须在文章顶部披露。
+自动检查只能发现结构、链接和部分文件问题，不能证明 AI 的输出质量。网站可用与教程完成实测是两件分别记录的事。商业合作须明确披露。
 
 ## 许可证
 

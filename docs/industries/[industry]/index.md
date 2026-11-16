@@ -1,5 +1,6 @@
 ---
 layout: page
+sidebar: false
 ---
 <div class="wide-page">
 <p class="eyebrow">按行业查找</p>

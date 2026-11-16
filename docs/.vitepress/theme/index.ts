@@ -10,5 +10,7 @@ import Download from './components/Download.vue'
 import RatingTable from './components/RatingTable.vue'
 import VideoEmbed from './components/VideoEmbed.vue'
 import Clip from './components/Clip.vue'
+import PromptBox from './components/PromptBox.vue'
+import ArticleSummary from './components/ArticleSummary.vue'
 import './style.css'
-export default { extends:DefaultTheme, Layout, enhanceApp({app}) { for(const [name,component] of Object.entries({Home,Catalog,ArticleList,Industries,RecentUpdates,Downloads,Download,RatingTable,VideoEmbed,Clip})) app.component(name,component) } }
+export default { extends:DefaultTheme, Layout, enhanceApp({app}) { for(const [name,component] of Object.entries({PromptBox,ArticleSummary,Home,Catalog,ArticleList,Industries,RecentUpdates,Downloads,Download,RatingTable,VideoEmbed,Clip})) app.component(name,component) } }

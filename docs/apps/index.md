@@ -1,10 +1,10 @@
 ---
 layout: page
-title: AI 应用
+sidebar: false
+title: 工具入门
 ---
 <div class="wide-page">
-<p class="eyebrow">WORK SMARTER WITH AI</p>
-<h1>AI 应用</h1>
-<p class="intro">带着一个具体任务认识工具。先看适用场景，再决定是否值得投入时间。</p>
+<h1>工具入门</h1>
+<p class="intro">不知道打开哪个 AI？先从豆包开始。</p>
 <ArticleList type="app" />
 </div>

@@ -7,7 +7,11 @@ title: 参与贡献
 
 ## 提交问题
 
-[内容纠错、投稿推荐、求评测或工具失效](https://github.com/zbwork/WorkSmarterWithAI/issues/new/choose)。请提供具体页面、失败步骤、工具版本和可脱敏复现的材料。
+[内容纠错、投稿推荐、求评测或工具失效](https://github.com/zbwork/WorkSmarterWithAI/issues/new/choose)。告诉我们是哪篇、卡在哪一步，最好附一张不含个人信息的截图。
+
+## 新手检查
+
+请找一位还没用过 AI 的人，只看教程操作，记录用时和卡住的步骤。第一课目标是 3 分钟内完成，不含注册登录；没达到就继续改，不把估计用时写成实测。
 
 ## 写一篇文章
 
@@ -19,7 +23,7 @@ pnpm dev
 新文件生成在 `docs/skills/your-slug/index.md`。先保留 `status: unverified`，完成测试后再填写 `verified` 和 `version`。
 
 - 一篇文章一个目录，图片放在同目录 `images/` 下。
-- 标题讲任务，正文先展示目标产物和验收标准。
+- 标题讲任务，正文先说做完得到什么，再写操作步骤。
 - 行业、工具等取值在根目录 `content.config.ts` 中统一维护。
 - 评测须有五维分数、用例和测试记录；无法验证的内容不写成亲测。
 - 原创包必须带许可证和使用说明；第三方代码保留原许可证。

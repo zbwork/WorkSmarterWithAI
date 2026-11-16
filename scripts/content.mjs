@@ -10,7 +10,7 @@ export function walk(dir) {
 }
 export const normalize = value => JSON.parse(JSON.stringify(value), (_, v) => typeof v === 'string' && /^\d{4}-\d{2}-\d{2}T00:00:00/.test(v) ? v.slice(0,10) : v)
 export function readArticles() {
-  return ['skills','workflows','apps'].flatMap(dir => walk(path.join(root,'docs',dir)))
+  return ['prompts','skills','workflows','apps'].flatMap(dir => walk(path.join(root,'docs',dir)))
     .filter(f => f.endsWith('/index.md'))
     .map(file => { const raw=fs.readFileSync(file,'utf8'); const parsed=matter(raw); return { ...normalize(parsed.data), body:parsed.content, raw, file:path.relative(root,file), url:'/'+path.relative(path.join(root,'docs'),path.dirname(file)).split(path.sep).join('/')+'/' } })
     .filter(a => a.type)
@@ -29,7 +29,7 @@ export function validateArticle(a) {
  if (a.status!=='unverified' && (!validDate(a.verified)||!a.version)) fail('已验证内容须填写 verified 与 version')
  if (a.verified && (!validDate(a.verified)||a.verified>today())) fail('verified 日期不合法')
  if (a.status==='unverified' && a.verified) fail('待验证内容不能填写实测日期')
- if (a.type==='skill' && !contentConfig.formats.includes(a.format)) fail('Skill 内容须区分 skill / mcp / prompt')
+ if (['skill','prompt'].includes(a.type) && !contentConfig.formats.includes(a.format)) fail('Skill 内容须区分 skill / mcp / prompt')
  if (a.kind==='review') {
    if (a.status==='unverified') fail('未实测的评测只能保留在 templates，不能发布评分')
    if (!a.scores || Object.keys(contentConfig.ratingWeights).some(k=> typeof a.scores[k]!=='number'||a.scores[k]<0||a.scores[k]>5)) fail('缺少有效的五维评分')

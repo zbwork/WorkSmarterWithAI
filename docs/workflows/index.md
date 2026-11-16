@@ -1,10 +1,10 @@
 ---
 layout: page
-title: 工作流
+sidebar: false
+title: 一步步做完一件事
 ---
 <div class="wide-page">
-<p class="eyebrow">WORK SMARTER WITH AI</p>
-<h1>工作流</h1>
-<p class="intro">从输入到交付，把多个工具和人工检查串成一个完整流程。</p>
+<h1>一步步做完一件事</h1>
+<p class="intro">从准备材料到拿到结果，每一步都写给你看。</p>
 <ArticleList type="workflow" />
 </div>

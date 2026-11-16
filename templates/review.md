@@ -1,12 +1,16 @@
 ---
 title: 请填写任务标题
-description: 请写明输入与交付结果
+description: 一句话说清做完能得到什么
 type: {{TYPE}}
 kind: review
 industry: [通用]
-tools: [通用对话 AI]
+tools: [豆包]
 difficulty: 入门
-cost: 按所用工具计费
+cost: 免费额度内
+costNote: 先用免费额度
+audience: 第一次用 AI 的人
+duration: 请填写预计用时
+authors: [{{AUTHOR}}]
 created: {{DATE}}
 updated: {{DATE}}
 verified: null
@@ -19,7 +23,9 @@ testCase: null
 ---
 # 请填写任务标题
 
-> 未经实测请保持 unverified，不填分数或实测日期。
+<ArticleSummary />
+
+<!-- 试跑前保留 unverified；试跑后补日期、环境、真实截图和遇到的问题。 -->
 
 ## 评分表
 

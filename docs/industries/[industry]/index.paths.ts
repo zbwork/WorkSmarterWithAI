@@ -1,2 +1,3 @@
 import { contentConfig } from '../../../content.config'
-export default { paths() { return contentConfig.industries.map(i=>({params:{industry:i.slug,industryName:i.name,description:i.description}})) } }
+import { readArticles } from '../../../scripts/content.mjs'
+export default { paths() { const articles=readArticles();return contentConfig.industries.filter(i=>articles.some(a=>a.status!=='deprecated'&&a.industry.includes(i.name))).map(i=>({params:{industry:i.slug,industryName:i.name,description:i.description}})) } }
