@@ -14,3 +14,7 @@ artifacts/
 docs/.vitepress/.temp/
 docs/public/changelog.json
 stale-report.md
+
+# Local browser snapshots and intermediate screenshots
+.playwright-cli/
+output/

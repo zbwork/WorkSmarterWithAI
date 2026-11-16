@@ -1,11 +1,16 @@
-# v0.2 设计参考
+# 最终设计资料
 
-由内置 ChatGPT Image（imagegen）生成，文件为 `v0.2-design.png`。这是界面设计稿，不是任何平台的实测截图。图中文字、状态、日期和示例文章仅用于排版参考，实际实现以 v0.2 设计文档与真实内容为准。
+更新：2026-11-17。此目录只保留各页面最终确认的参考图；旧版草图、备选方案及生成提示词已清理，历史内容可从 Git 历史查找。
 
-视觉方向：白底、深绿色、清晰分隔、短句，保留第一课；新增读者路线与平台选择。文章标题优先，平台标签横向切换，进阶内容折叠。
+| 文件 | 用途 |
+|---|---|
+| [首页桌面](final/home-desktop.png) | 当前实现截图，包含三组场景、六篇精选教程、已收紧的字号和间距 |
+| [首页手机](final/home-mobile.png) | 当前手机端实现截图 |
+| [Header 下拉](final/header-dropdown.png) | 当前左对齐、紧凑间距的下拉截图，无“全部场景” |
+| [文章布局](final/article-layout.png) | 最终确认的当前场景目录、正文、本页目录布局参考 |
+| [技能库列表](final/library-list.png) | 最终确认的列表设计参考 |
+| [技能库详情](final/library-detail.png) | 最终确认的详情设计参考 |
 
-## 生成提示词
+后三张为已确认的生成设计图，用于对应页面布局；其中早期 Header 文案与导航细节以当前首页、Header 截图和[最新需求文档](../设计文档.md)为准。这些图均不是 AI 工具实际运行的证据。
 
-Use case: ui-mockup. Create a high fidelity Chinese website design presentation board for an open source VitePress handbook named “AI 提效指南”, version v0.2. Design reference only, not a real software screenshot. Flat orthographic interfaces, no perspective, no devices, no photographs, no invented product output. Large landscape canvas showing a large desktop homepage at left (about 60% width), a compact desktop article detail at top right and a 375px mobile article mockup at bottom right. Clear readable Chinese sans-serif, white and very pale warm gray backgrounds, forest green #246b55 accents, restrained thin dividers, generous white space, modest 6px rounded corners, minimal decoration. Green beginner badge, blue intermediate badge, purple advanced badge. Small muted caption “v0.2 设计方案” outside screens.
-Homepage exact navigation: 新手开始 | Skill（技能） | 工作流 | AI 应用 | 按平台 | 按行业 | 全部教程 | 更多. Brand at top left, search compact at top. Headline “AI 提效指南” with subtitle “新手跟着做就会，懂行的人也有干货。” First section “你现在是？” three simple horizontal links “我刚开始用 AI”“我已经在用 AI”“我是开发者 / 从业者”. Next section “你用哪个工具？” four accessible selection buttons “豆包工作”“WorkBuddy”“知办”“Codex”, selected green outlined 豆包工作; smaller link “还没有，帮我选”. Keep a clear first lesson card “第一课：把会议记录变成待办表” with “预计 3 分钟 · 豆包工作” and button “跟着做一次 →”. Below show a quiet list of 3 articles with platform status marks and small level badges, not an overwhelming dashboard. No large imagery hero.
-Article view: left slim sidebar “Skill（技能）”, “入门”, article selected “让 AI 先问清楚你要什么”. Main title comes FIRST “让 AI 先问清楚你要什么”, below “适合经常用 AI 写作的人 · 约 10 分钟 · 免费额度内”. Section “在你用的平台上使用”. Four tab labels “豆包工作 入门 ⏳”“WorkBuddy 入门 ⏳”“知办 即将补充”“Codex 进阶 开发者”. Selected 豆包工作. Short plain Chinese instructions and a green “一键复制” button, screenshot placeholder explicitly labelled “待补截图”, absolutely do not fabricate a product screenshot. Folded “进阶玩法”“给懂行的人” and small test-record table at bottom. Gray discreet badge “草稿 · 等待更多平台实测”. Mobile mockup repeats title-first layout with four horizontally scrolling platform tabs and readable buttons. Treat as polished implementable UI specification; focus on hierarchy and usability, avoid decorative icons, gradients, glass effects and illegible tiny text.
+过程截图统一放在被 Git 忽略的 `output/` 或 `.playwright-cli/`；只将最终确认的图归档到本目录。文章实测图片仍随文章维护，不在本次清理范围内。
