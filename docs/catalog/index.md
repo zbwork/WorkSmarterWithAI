@@ -1,6 +1,14 @@
 ---
-layout: page
+title: 页面已迁移
+redirectTo: /search/
+search: false
 sidebar: false
-title: 全部教程
+outline: false
+head:
+  - - meta
+    - name: robots
+      content: noindex
 ---
-<Catalog />
+# 页面已迁移
+
+<RedirectPage />

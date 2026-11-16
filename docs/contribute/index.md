@@ -18,15 +18,15 @@ title: 参与贡献
 ## 写一篇文章
 
 ```bash
-pnpm new skill guide your-slug
+pnpm new task your-slug --scenario office --stage meeting
 pnpm dev
 ```
 
-新文件生成在 `docs/skills/your-slug/index.md`。先把对应平台保留为 `status: unverified`，完成测试后再填写该平台的 `verified`、`version` 和真实截图。文章状态和级别自动计算。
+新文件生成在 `docs/tasks/your-slug/index.md`。先把对应工具保留为 `status: unverified`，完成测试后再填写该工具的 `verified`、`version` 和真实截图。文章状态和级别自动计算。
 
 - 一篇文章一个目录，图片放在同目录 `images/` 下。
 - 标题讲任务，正文先说做完得到什么，再写操作步骤。
-- 行业、工具等取值在根目录 `content.config.ts` 中统一维护。
+- 场景、环节、工具等取值在根目录 `content.config.ts` 中统一维护。
 - 评测须有五维分数、用例和测试记录；无法验证的内容不写成亲测。
 - 原创包必须带许可证和使用说明；第三方代码保留原许可证。
 
@@ -51,6 +51,6 @@ pnpm build
 
 在文章的 `authors` 字段填写署名。提交 Pull Request 后运行自动检查；维护者审核内容、授权和复现记录后合并。提交内容默认按项目对应的正文或代码许可证授权。
 
-## 提交平台实测
+## 提交工具实测
 
-使用[平台实测投稿](https://github.com/zbwork/WorkSmarterWithAI/issues/new?template=platform-test.yml)，写清文章、平台、版本、日期和结果。技能包需要至少两个平台实测通过才进入默认列表。
+使用[工具实测投稿](https://github.com/zbwork/WorkSmarterWithAI/issues/new?template=tool-test.yml)，写清文章、工具、版本、日期和结果。技能包需要至少一个工具实测通过才进入默认列表。

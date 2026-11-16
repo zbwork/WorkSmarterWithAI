@@ -1,0 +1,53 @@
+---
+kind: guide
+cost: 免费
+created: '2026-11-16'
+updated: '2026-11-16'
+sponsored: false
+authors:
+  - zbwork
+name: WorkBuddy
+description: 办公智能体：安装、登录与使用说明。
+libraryType: app
+app: workbuddy
+platforms:
+  workbuddy:
+    level: 入门
+    status: unverified
+    verified: null
+    version: null
+original: false
+---
+# <PlatformName slug="workbuddy" /> 入门
+
+这是一个通过对话完成工作任务的客户端。以下步骤依据官方文档，尚未实测。
+
+## 安装、登录与费用
+
+到[官方网站](https://www.workbuddy.cn/)下载适合你电脑的客户端，安装后按提示登录。
+
+费用信息查阅日期：2026-11-16。官方技能说明提到复杂技能会消耗 Credits；当前可用额度与套餐价格还没有在账号中核对，请以客户端显示及官网价格说明为准。
+
+## 怎么导入技能
+
+依据[官方技能说明](https://www.workbuddy.cn/docs/workbuddy/From-Beginner-to-Expert-Guide/Function-Description/Skills-Market)：
+
+1. 打开客户端左侧“专家·技能·连接器”，选择“技能”。
+2. 点“添加技能”→“上传技能”。
+3. 将本地技能包拖入上传区域，或点击选择文件。
+4. 上传后，到已安装技能列表查看是否出现该技能。
+
+**待补截图**：技能入口、上传技能、安装成功。
+
+## 怎么调用
+
+在对话中说明希望使用哪个技能和要做的事情。先用虚构材料练一次，检查有没有完成要求。
+
+**待补截图**：对话中调用技能、完成后的结果。成功上传和实际调用是两步，都需要确认。
+
+
+<UsedIn />
+
+## 相关评测
+
+目前没有已发布的评测。

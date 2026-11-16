@@ -1,8 +1,14 @@
 ---
-title: 工作流
+title: 页面已迁移
+redirectTo: /library/?type=workflow
+search: false
+sidebar: false
+outline: false
+head:
+  - - meta
+    - name: robots
+      content: noindex
 ---
-# 工作流
+# 页面已迁移
 
-从一份材料到一个结果，照着几个步骤做完。
-
-<ArticleList type="workflow" />
+<RedirectPage />

@@ -1,10 +1,14 @@
 ---
-title: 提示词
+title: 页面已迁移
+redirectTo: /library/?type=skill&format=prompt
+search: false
+sidebar: false
+outline: false
+head:
+  - - meta
+    - name: robots
+      content: noindex
 ---
-<script setup>
-import {onMounted} from 'vue'
-import {withBase} from 'vitepress'
-onMounted(()=>location.replace(withBase('/skills/?format=prompt')))
-</script>
-# 提示词
-分类已合并到 Skill（技能）。[查看提示词内容](/skills/?format=prompt)。
+# 页面已迁移
+
+<RedirectPage />

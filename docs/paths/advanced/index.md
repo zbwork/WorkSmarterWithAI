@@ -1,12 +1,14 @@
 ---
-title: 从使用走向开发
+title: 页面已迁移
+redirectTo: /search/?level=高级
+search: false
+sidebar: false
+outline: false
+head:
+  - - meta
+    - name: robots
+      content: noindex
 ---
-# 从使用走向开发
+# 页面已迁移
 
-需要会命令行和写代码。本轮先搭建路线入口，尚没有高级实操文章。
-
-1. [先统一几个词的意思](/skills/skill-mcp-prompt/)
-2. [了解项目里的技能位置](/platforms/codex/)
-3. [按贡献说明记录平台实测](/contribute/)
-
-完成顺序是建议，已经会的步骤可以跳过。
+<RedirectPage />

@@ -1,8 +1,14 @@
 ---
-title: Skill（技能）
+title: 页面已迁移
+redirectTo: /library/?type=skill
+search: false
+sidebar: false
+outline: false
+head:
+  - - meta
+    - name: robots
+      content: noindex
 ---
-# Skill（技能）
+# 页面已迁移
 
-把常用方法保存下来，下次接着用。先了解是什么，再选择适合的平台。
-
-<ArticleList type="skill" />
+<RedirectPage />

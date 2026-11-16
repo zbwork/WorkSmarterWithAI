@@ -1,6 +1,14 @@
 ---
-title: 平台入口已迁移
+title: 页面已迁移
+redirectTo: /library/apps/doubao/
+search: false
+sidebar: false
+outline: false
+head:
+  - - meta
+    - name: robots
+      content: noindex
 ---
-# 平台入口已迁移
+# 页面已迁移
 
-[查看平台入门](/platforms/doubao/)。原有教程网址保持可访问。
+<RedirectPage />

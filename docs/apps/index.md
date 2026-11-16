@@ -1,8 +1,14 @@
 ---
-title: AI 应用
+title: 页面已迁移
+redirectTo: /library/?type=app
+search: false
+sidebar: false
+outline: false
+head:
+  - - meta
+    - name: robots
+      content: noindex
 ---
-# AI 应用
+# 页面已迁移
 
-打开具体工具，从第一次操作开始。
-
-<ArticleList type="app" />
+<RedirectPage />

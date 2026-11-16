@@ -1,6 +1,14 @@
 ---
-title: 知办
+title: 页面已迁移
+redirectTo: /library/
+search: false
+sidebar: false
+outline: false
+head:
+  - - meta
+    - name: robots
+      content: noindex
 ---
-# <PlatformName slug="zhiban" />
+# 页面已迁移
 
-待确认。
+<RedirectPage />

@@ -1,93 +1,14 @@
 ---
-title: 第一次用豆包：发出第一条消息
-description: 找到输入框，发出一句话，再学会让它改短一点。
-type: app
-kind: guide
-industry:
-  - 通用
-  - 设计
-  - 教育
-tools: []
-cost: 免费额度内
-costNote: 先用免费额度
-audience: 还没和 AI 聊过天的人
-duration: 预计 3 分钟（不含登录）
-order: 3
-tags:
-  - 新手
-  - 工作提效
-created: 2026-11-16
-updated: 2026-11-16
-sponsored: false
-authors:
-  - zbwork
-platforms:
-  doubao:
-    level: 入门
-    status: active
-    verified: '2026-11-16'
-    version: 豆包网页版，对话 / 快速，未显示模型版本
-    prerequisites: 会复制、粘贴和点击按钮
-    runs: 1
-    model: 页面未显示
-    input: 文中虚构练习材料
-    notes: 已完成一轮提问和一轮改写，本次没有付款
+title: 页面已迁移
+redirectTo: /start/first-message/
+search: false
+sidebar: false
+outline: false
+head:
+  - - meta
+    - name: robots
+      content: noindex
 ---
-# 第一次用豆包：发出第一条消息
+# 页面已迁移
 
-<ArticleSummary />
-
-豆包是一个可以用日常语言聊天的 AI 工具。你不需要先学“提示词”：把想做的事说给它听，就能开始。
-
-## 1. 打开正确的网站
-
-打开 [豆包官方网站](https://www.doubao.com/chat/)。电脑上用浏览器就能开始；若出现登录提示，先按页面提示完成。
-
-先用“对话”入口练习。页面下面写着“发消息”的地方，就是输入框。
-
-![豆包网页版真实截图：输入框在下方，右下角箭头用于发送，示例里已粘贴会议练习文字](/images/doubao-input.webp)
-
-## 2. 复制一句话试试
-
-<PromptBox>
-
-请帮我写一条发给朋友的消息：我今天会晚到十分钟，请他先点菜。语气自然一点，像平时发微信，不超过 40 个字。
-
-</PromptBox>
-
-点“一键复制”，回到豆包的输入框粘贴，点右下角向上箭头发送。等回答出来，就完成第一次对话了。
-
-## 3. 不满意？接着说就好
-
-觉得太正式，就在同一个输入框发：“再口语一点，只给我一句话。”它会接着修改，不需要重新解释整件事。
-
-## 做完得到什么？
-
-我们在 2026-11-16 实际得到的第一条回答是：
-
-> 我今天会晚到十分钟，你先点菜哈，不用等我～
-
-接着发“再口语一点，只给我一句话”，它改成：
-
-> 我大概晚十分钟到，你先点菜哈，别等我！
-
-![豆包真实对话：先写一条迟到消息，再按要求改得更口语](/images/doubao-first-message.webp)
-
-先看一眼，再选中文字复制。不同次回答可能不同，意思正确、语气合适就行。
-
-遇到付费提示先停下来，这个练习不需要你购买套餐。想换个工具，也可以打开 [DeepSeek 官方网页版](https://chat.deepseek.com/)试同一句话；本页截图和按钮说明以豆包为准。
-
-下一步：[用会议记录练习做表格](/workflows/meeting-actions/)。
-
-
-[豆包工作入门与技能导入说明](/platforms/doubao/)也收录了这次真实聊天练习。
-
-::: details 进阶玩法
-继续要求它改变语气或字数，每次只改一个要求，更容易看出差别。
-:::
-
-::: details 给懂行的人
-本页验证的是普通聊天。不能据此认定技能导入、调用也已通过。
-:::
-
-<PlatformTestTable />
+<RedirectPage />

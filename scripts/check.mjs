@@ -2,11 +2,12 @@ import fs from 'node:fs'
 import path from 'node:path'
 import sharp from 'sharp'
 import matter from 'gray-matter'
+import {expandPrompts} from './prompts.mjs'
 import { root, walk, readArticles, validateArticle } from './content.mjs'
 const errors=[]; const articles=readArticles();const generatedDownloads=new Set(articles.map(a=>a.download).filter(Boolean));const docs=path.join(root,'docs');const external=new Set()
-for(const a of articles){for(const e of validateArticle(a))errors.push(`${a.file}: ${e}`)
+for(const a of articles){try{expandPrompts(a.body)}catch(e){errors.push(a.file+': '+e.message)};for(const e of validateArticle(a))errors.push(`${a.file}: ${e}`)
  if(a.source){const source=path.resolve(root,a.source);if(!source.startsWith(root+path.sep)||!fs.existsSync(source))errors.push(`${a.file}: source 不存在或越界`)}
- if(a.kind==='original'&&a.format==='skill'&&a.source){const f=path.join(root,a.source,'SKILL.md');if(!fs.existsSync(f))errors.push(`${a.file}: 缺少 SKILL.md`);else{const {data}=matter(fs.readFileSync(f,'utf8'));if(!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(data.name||'')||typeof data.description!=='string'||!data.description.trim())errors.push(`${a.file}: SKILL.md 缺少有效 name / description`)}}
+ if(a.original&&a.format==='skill'&&a.source){const f=path.join(root,a.source,'SKILL.md');if(!fs.existsSync(f))errors.push(`${a.file}: 缺少 SKILL.md`);else{const {data}=matter(fs.readFileSync(f,'utf8'));if(!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(data.name||'')||typeof data.description!=='string'||!data.description.trim())errors.push(`${a.file}: SKILL.md 缺少有效 name / description`)}}
  if(a.download && !/^\/downloads\/[a-z0-9-]+\.zip$/.test(a.download))errors.push(`${a.file}: download 路径不合法`)
 }
 for(const f of walk(docs).filter(f=>f.endsWith('.md')&&!f.includes('/public/'))){
@@ -19,7 +20,7 @@ for(const f of walk(docs).filter(f=>f.endsWith('.md')&&!f.includes('/public/')))
   if(!target.startsWith(docs+path.sep)&&target!==docs){errors.push(`${f}: 链接越界 ${href}`);continue}
   if(generatedDownloads.has(clean))continue // Built from validated source after content checks, including in a clean checkout.
   if([target,target+'.md',path.join(target,'index.md'),path.join(docs,'public',clean)].some(p=>fs.existsSync(p)&&fs.statSync(p).isFile()))continue
-  if(/^\/(industries|tools)\/[^/]+\/?$/.test(clean))continue
+  if(/^\/scenarios\/[^/]+\/?$/.test(clean)&&articles.some(a=>!a.draft&&a.scenarios?.some(s=>clean==='/scenarios/'+s.scenario+'/')))continue
   errors.push(`${path.relative(root,f)}: 内链不存在 ${href}`)
  }
 }
