@@ -6,3 +6,5 @@
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
 
 .mobile-filter-toggle{display:none}@media(max-width:767px){.mobile-filter-toggle{display:inline-block}.filter-panel:not(.expanded) fieldset,.filter-panel:not(.expanded) .filter-checks{display:none}.filter-panel .filter-heading{margin-bottom:0}.filter-panel.expanded .filter-heading{margin-bottom:16px}.filter-options button{min-height:32px}.filter-checks label{min-height:32px}}
+
+@media(max-width:767px){.mobile-break{display:block}}
