@@ -3,7 +3,7 @@ import path from 'node:path'
 import sharp from 'sharp'
 import matter from 'gray-matter'
 import { root, walk, readArticles, validateArticle } from './content.mjs'
-const errors=[]; const articles=readArticles();const docs=path.join(root,'docs');const external=new Set()
+const errors=[]; const articles=readArticles();const generatedDownloads=new Set(articles.map(a=>a.download).filter(Boolean));const docs=path.join(root,'docs');const external=new Set()
 for(const a of articles){for(const e of validateArticle(a))errors.push(`${a.file}: ${e}`)
  if(a.source){const source=path.resolve(root,a.source);if(!source.startsWith(root+path.sep)||!fs.existsSync(source))errors.push(`${a.file}: source 不存在或越界`)}
  if(a.kind==='original'&&a.format==='skill'&&a.source){const f=path.join(root,a.source,'SKILL.md');if(!fs.existsSync(f))errors.push(`${a.file}: 缺少 SKILL.md`);else{const {data}=matter(fs.readFileSync(f,'utf8'));if(!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(data.name||'')||typeof data.description!=='string'||!data.description.trim())errors.push(`${a.file}: SKILL.md 缺少有效 name / description`)}}
@@ -17,6 +17,7 @@ for(const f of walk(docs).filter(f=>f.endsWith('.md')&&!f.includes('/public/')))
   const clean=decodeURIComponent(href.split(/[?#]/)[0]);if(!clean)continue
   let target=clean.startsWith('/')?path.join(docs,clean):path.resolve(path.dirname(f),clean)
   if(!target.startsWith(docs+path.sep)&&target!==docs){errors.push(`${f}: 链接越界 ${href}`);continue}
+  if(generatedDownloads.has(clean))continue // Built from validated source after content checks, including in a clean checkout.
   if([target,target+'.md',path.join(target,'index.md'),path.join(docs,'public',clean)].some(p=>fs.existsSync(p)&&fs.statSync(p).isFile()))continue
   if(/^\/(industries|tools)\/[^/]+\/?$/.test(clean))continue
   errors.push(`${path.relative(root,f)}: 内链不存在 ${href}`)
