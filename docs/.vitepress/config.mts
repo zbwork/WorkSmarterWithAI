@@ -24,5 +24,6 @@ export default withMermaid(defineConfig({
   miniSearch:{options:{tokenize:(text)=>Array.from(new Intl.Segmenter('zh',{granularity:'word'}).segment(text.toLowerCase())).filter(s=>s.isWordLike).map(s=>s.segment)},searchOptions:{prefix:true,fuzzy:0.2}}
  }}
  },
- vite:{server:{fs:{allow:['../..']}},ssr:{noExternal:['vitepress-plugin-mermaid']}}
+ // Prebundle Mermaid and its CommonJS dependencies for pnpm's strict module layout.
+ vite:{optimizeDeps:{include:['mermaid']},server:{fs:{allow:['../..']}},ssr:{noExternal:['vitepress-plugin-mermaid']}}
 }))
