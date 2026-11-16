@@ -3,23 +3,35 @@ title: 第一次用豆包：发出第一条消息
 description: 找到输入框，发出一句话，再学会让它改短一点。
 type: app
 kind: guide
-industry: [通用, 设计, 教育]
-tools: [豆包]
-difficulty: 入门
+industry:
+  - 通用
+  - 设计
+  - 教育
+tools: []
 cost: 免费额度内
 costNote: 先用免费额度
 audience: 还没和 AI 聊过天的人
 duration: 预计 3 分钟（不含登录）
 order: 3
-tags: [新手, 工作提效]
+tags:
+  - 新手
+  - 工作提效
 created: 2026-11-16
 updated: 2026-11-16
-verified: 2026-11-16
-status: active
-version: 豆包网页版，对话 / 快速，未显示模型版本
-testNote: 已完成一轮提问和一轮改写，本次没有付款
 sponsored: false
-authors: [zbwork]
+authors:
+  - zbwork
+platforms:
+  doubao:
+    level: 入门
+    status: active
+    verified: '2026-11-16'
+    version: 豆包网页版，对话 / 快速，未显示模型版本
+    prerequisites: 会复制、粘贴和点击按钮
+    runs: 1
+    model: 页面未显示
+    input: 文中虚构练习材料
+    notes: 已完成一轮提问和一轮改写，本次没有付款
 ---
 # 第一次用豆包：发出第一条消息
 
@@ -66,3 +78,16 @@ authors: [zbwork]
 遇到付费提示先停下来，这个练习不需要你购买套餐。想换个工具，也可以打开 [DeepSeek 官方网页版](https://chat.deepseek.com/)试同一句话；本页截图和按钮说明以豆包为准。
 
 下一步：[用会议记录练习做表格](/workflows/meeting-actions/)。
+
+
+[豆包工作入门与技能导入说明](/platforms/doubao/)也收录了这次真实聊天练习。
+
+::: details 进阶玩法
+继续要求它改变语气或字数，每次只改一个要求，更容易看出差别。
+:::
+
+::: details 给懂行的人
+本页验证的是普通聊天。不能据此认定技能导入、调用也已通过。
+:::
+
+<PlatformTestTable />

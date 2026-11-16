@@ -1,10 +1,8 @@
 ---
-layout: page
-sidebar: false
-title: 一步步做完一件事
+title: 工作流
 ---
-<div class="wide-page">
-<h1>一步步做完一件事</h1>
-<p class="intro">从准备材料到拿到结果，每一步都写给你看。</p>
+# 工作流
+
+从一份材料到一个结果，照着几个步骤做完。
+
 <ArticleList type="workflow" />
-</div>

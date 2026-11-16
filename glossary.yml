@@ -1,0 +1,28 @@
+skill:
+  name: Skill
+  explanation: 给 AI 的办事说明书，把做一件事的方法和需要的资料放在一起。
+  link: https://agentskills.io/what-are-skills
+mcp:
+  name: MCP
+  explanation: 让 AI 连接其他工具或读取数据的一种通用方式。
+  link: https://modelcontextprotocol.io/docs/getting-started/intro
+agent:
+  name: Agent
+  explanation: 不只回答问题，还能按目标安排步骤、调用工具做事的 AI 助手。
+  link: https://developers.openai.com/api/docs/guides/agents
+prompt:
+  name: 提示词
+  explanation: 你发给 AI 的话，用来说明想让它做什么。
+  link: https://developers.openai.com/api/docs/guides/prompt-engineering
+token:
+  name: token
+  explanation: AI 处理文字时使用的小片段，用量和费用常按它计算；它不固定等于一个字。
+  link: https://platform.openai.com/tokenizer
+api-key:
+  name: API Key
+  explanation: 软件连接 AI 服务时使用的密钥，像密码一样保存，不要公开。
+  link: https://developers.openai.com/api/docs/quickstart
+skill-md:
+  name: SKILL.md
+  explanation: 技能包里的主要说明文件，开头写名称和简介，后面写具体做法。
+  link: https://agentskills.io/specification

@@ -3,22 +3,28 @@ title: 提示词、Skill、MCP，到底是什么？
 description: 先分清“说一句话”“照着方法做”和“连接其他工具”。
 type: skill
 kind: guide
-industry: [通用, 开发]
-tools: [Claude Code, Codex]
+industry:
+  - 通用
+  - 开发
+tools: [Claude Code]
 difficulty: 入门
 cost: 免费
 costNote: 免费阅读
 audience: 已经会和 AI 聊天的人
 duration: 约 2 分钟读完
 order: 6
-tags: [新手, 工作提效]
+tags:
+  - 新手
+  - 工作提效
 created: 2026-11-16
 updated: 2026-11-16
 verified: null
 status: unverified
 sponsored: false
-authors: [zbwork]
-format: skill
+authors:
+  - zbwork
+concept: true
+platforms: {}
 ---
 # 提示词、Skill、MCP，到底是什么？
 
@@ -30,11 +36,11 @@ format: skill
 
 例如：“把下面的会议记录整理成待办表。”它就是一句工作要求，复制到对话框就能用。
 
-先试试：[让 AI 先问清楚你要什么](/skills/task-brief/)。
+先试试：[把会议记录变成待办表](/workflows/meeting-actions/)。
 
 ## Skill：给 AI 的办事说明书
 
-把做一件事的方法、参考资料，有时还有小程序，放在一起，交给支持它的 AI 工具使用。比如，一份按固定格式整理会议记录的说明书。
+<Term id="skill" /> 是把做一件事的方法、参考资料，有时还有小程序，放在一起，交给支持它的 AI 工具使用。比如，一份按固定格式整理会议记录的说明书。
 
 它和普通聊天消息的区别是：工具需要能读取这份说明书。具体怎么放进去，要看那份 Skill 的安装教程。不是把压缩包随便发给任意 AI 都能用。
 

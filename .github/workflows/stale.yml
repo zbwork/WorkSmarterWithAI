@@ -24,7 +24,7 @@ jobs:
             const fs = require('fs');
             const title = '手册复测待办（自动更新）';
             const body = fs.readFileSync('stale-report.md', 'utf8');
-            const issues = await github.paginate(github.rest.issues.listForRepo, {...context.repo, state: 'open', creator: 'github-actions[bot]'});
+            const issues = await github.paginate(github.rest.issues.listForRepo, {...context.repo, state: 'all', creator: 'github-actions[bot]'});
             const existing = issues.find(i => i.title === title);
             const hasItems = body.includes('- [ ]');
             if (existing) await github.rest.issues.update({...context.repo, issue_number: existing.number, body, state: hasItems ? 'open' : 'closed'});

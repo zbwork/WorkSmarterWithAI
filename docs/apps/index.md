@@ -1,10 +1,8 @@
 ---
-layout: page
-sidebar: false
-title: 工具入门
+title: AI 应用
 ---
-<div class="wide-page">
-<h1>工具入门</h1>
-<p class="intro">不知道打开哪个 AI？先从豆包开始。</p>
+# AI 应用
+
+打开具体工具，从第一次操作开始。
+
 <ArticleList type="app" />
-</div>

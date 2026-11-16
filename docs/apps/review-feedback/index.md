@@ -1,29 +1,41 @@
 ---
 title: 用豆包整理商品评论
 description: 把零散评论分成“喜欢什么”和“哪里不满意”。
-type: app
+type: workflow
 kind: guide
-industry: [电商, 新媒体]
-tools: [豆包]
-difficulty: 入门
+industry:
+  - 电商
+  - 新媒体
+tools: []
 cost: 免费额度内
 costNote: 先用免费额度
 audience: 需要看商品评论的人
 duration: 预计 3 分钟（不含登录）
 order: 5
-tags: [新手, 工作提效]
+tags:
+  - 新手
+  - 工作提效
 created: 2026-11-16
 updated: 2026-11-16
-verified: null
-status: unverified
 sponsored: false
-authors: [zbwork]
+authors:
+  - zbwork
+platforms:
+  doubao:
+    level: 入门
+    status: unverified
+    verified: null
+    version: null
+    prerequisites: 会复制、粘贴和点击按钮
 ---
 # 用豆包整理商品评论
 
 <ArticleSummary />
 
 评论多了不好整理？先拿四条虚构评论练习，看看买家在说什么。
+
+
+::: platform doubao
 
 ## 1. 打开豆包
 
@@ -66,3 +78,15 @@ authors: [zbwork]
 ## 换成自己的评论
 
 先复制十来条练习，删掉昵称、电话、订单号，再加上编号。整理结果可以帮你找到值得继续看的问题；几条评论还不能代表所有买家。
+
+:::
+
+::: details 进阶玩法
+把练习材料换成自己的文字，先用短段落试一次，检查没有漏掉关键信息后再处理长材料。
+:::
+
+::: details 给懂行的人
+保留原始材料和修改后的回答，方便对照。每次换工具或模型，都重新检查人名、数字和未确定事项。
+:::
+
+<PlatformTestTable />

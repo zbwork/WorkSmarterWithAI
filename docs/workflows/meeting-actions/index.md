@@ -3,29 +3,43 @@ title: 把会议记录变成待办表
 description: 复制几句会议记录，得到一张“谁做什么、什么时候做”的表。
 type: workflow
 kind: guide
-industry: [通用, 行政人事]
-tools: [豆包]
-difficulty: 入门
+industry:
+  - 通用
+  - 行政人事
+tools: []
 cost: 免费额度内
 costNote: 先用免费额度
 audience: 经常开会的人
 duration: 预计 3 分钟（不含登录）
 order: 1
-tags: [新手, 工作提效]
+tags:
+  - 新手
+  - 工作提效
 created: 2026-11-16
 updated: 2026-11-16
-verified: 2026-11-16
-status: active
 sponsored: false
-authors: [zbwork]
-version: 豆包网页版，对话 / 快速入口，页面未显示模型版本
-testNote: 一次完整输入，追加一次修正，详见上方记录
+authors:
+  - zbwork
+platforms:
+  doubao:
+    level: 入门
+    status: active
+    verified: '2026-11-16'
+    version: 豆包网页版，对话 / 快速入口，页面未显示模型版本
+    prerequisites: 会复制、粘贴和点击按钮
+    runs: 1
+    model: 页面未显示
+    input: 文中虚构练习材料
+    notes: 一次完整输入，追加一次修正，详见上方记录
 ---
 # 把会议记录变成待办表
 
 <ArticleSummary />
 
 先用下面这段虚构记录练习。做完后，你会得到一张可以复制进文档的待办表。
+
+
+::: platform doubao
 
 ## 1. 打开豆包
 
@@ -93,4 +107,16 @@ testNote: 一次完整输入，追加一次修正，详见上方记录
 
 </details>
 
-接下来可以试试：[让 AI 先问清楚你要什么](/skills/task-brief/)。
+接下来可以试试：[把访谈记录变成文章初稿](/workflows/interview-to-post/)。
+
+:::
+
+::: details 进阶玩法
+把练习材料换成自己的文字，先用短段落试一次，检查没有漏掉关键信息后再处理长材料。
+:::
+
+::: details 给懂行的人
+保留原始材料和修改后的回答，方便对照。每次换工具或模型，都重新检查人名、数字和未确定事项。
+:::
+
+<PlatformTestTable />

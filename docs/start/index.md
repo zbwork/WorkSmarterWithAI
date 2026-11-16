@@ -25,7 +25,6 @@ title: 第一次用 AI，从这里开始
 
 ## 第一课做完，再选一件事
 
-- [不知道怎么提要求？让 AI 先问你](/skills/task-brief/)
 - [把访谈记录变成文章初稿](/workflows/interview-to-post/)
 - [把商品评论分分类](/apps/review-feedback/)
 

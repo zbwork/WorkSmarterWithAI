@@ -3,27 +3,45 @@ title: 把访谈记录变成文章初稿
 description: 先列提纲，再写初稿，留下受访者真正说过的话。
 type: workflow
 kind: guide
-industry: [新媒体, 教育]
-tools: [豆包]
-difficulty: 入门
+industry:
+  - 新媒体
+  - 教育
+tools: []
 cost: 免费额度内
 costNote: 先用免费额度
 audience: 需要写文章的人
 duration: 预计 5 分钟（不含登录）
 order: 4
-tags: [新手, 工作提效]
+tags:
+  - 新手
+  - 工作提效
 created: 2026-11-16
 updated: 2026-11-16
-verified: null
-status: unverified
 sponsored: false
-authors: [zbwork]
+authors:
+  - zbwork
+platforms:
+  doubao:
+    level: 入门
+    status: unverified
+    verified: null
+    version: null
+    prerequisites: 会复制、粘贴和点击按钮
+  codex:
+    level: 进阶
+    status: unverified
+    verified: null
+    version: null
+    prerequisites: 会在项目目录中放置文件，并使用 Codex
 ---
 # 把访谈记录变成文章初稿
 
 <ArticleSummary />
 
 手头有一段采访或聊天记录，却不知道怎么开头？先让 AI 帮你列三个要点，再写一篇短文。
+
+
+::: platform doubao
 
 ## 1. 打开豆包，发这段练习
 
@@ -60,3 +78,31 @@ authors: [zbwork]
 ## 换成自己的访谈
 
 把练习记录换成你获得使用许可的访谈文字，先删掉电话等无关信息。文章比较长时，分几段发，并告诉它“我发完后再开始”。
+
+:::
+
+::: platform codex
+
+在 Codex 中打开一个练习项目。这个流程只用对话，不需要安装技能。
+
+<PromptBox>
+
+把下面的虚构访谈整理成三个要点，先不要写全文：小陈第一次组织读书会准备了 20 个问题，大家聊得很累；第二次只留 3 个问题，每人先讲自己的经历，讨论更自然。只用这段话里的信息。
+
+</PromptBox>
+
+看完要点，再发：“按这三个要点写一篇 300 字以内、给第一次组织读书会的人看的短文。”检查有没有编造经历或数字。
+
+这条操作路线尚未实测，待补截图：输入、提纲、短文结果。
+
+:::
+
+::: details 进阶玩法
+把练习材料换成自己的文字，先用短段落试一次，检查没有漏掉关键信息后再处理长材料。
+:::
+
+::: details 给懂行的人
+保留原始材料和修改后的回答，方便对照。每次换工具或模型，都重新检查人名、数字和未确定事项。
+:::
+
+<PlatformTestTable />

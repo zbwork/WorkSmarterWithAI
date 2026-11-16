@@ -1,10 +1,8 @@
 ---
-layout: page
-sidebar: false
-title: 进阶：认识 Skill
+title: Skill（技能）
 ---
-<div class="wide-page">
-<h1>进阶：认识 Skill</h1>
-<p class="intro">先会聊天，再了解这些让 AI 做更多事的方法。</p>
+# Skill（技能）
+
+把常用方法保存下来，下次接着用。先了解是什么，再选择适合的平台。
+
 <ArticleList type="skill" />
-</div>

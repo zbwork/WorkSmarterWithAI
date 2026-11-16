@@ -1,10 +1,10 @@
 ---
-layout: page
-sidebar: false
-title: 现成指令
+title: 提示词
 ---
-<div class="wide-page">
-<h1>现成指令</h1>
-<p class="intro">指令就是你发给 AI 的话。选一段，复制就能用。</p>
-<ArticleList type="prompt" />
-</div>
+<script setup>
+import {onMounted} from 'vue'
+import {withBase} from 'vitepress'
+onMounted(()=>location.replace(withBase('/skills/?format=prompt')))
+</script>
+# 提示词
+分类已合并到 Skill（技能）。[查看提示词内容](/skills/?format=prompt)。
