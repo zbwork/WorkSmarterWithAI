@@ -1,0 +1,27 @@
+name: 我想学这件事
+description: 告诉我们你想用 AI 完成什么
+title: "[想学] 想完成的事情"
+body:
+  - type: textarea
+    id: task
+    attributes:
+      label: 你想做什么？现在怎么做？
+      placeholder: 例如，我是老师，想把课堂笔记整理成学生能看懂的复习提纲。
+    validations:
+      required: true
+  - type: input
+    id: result
+    attributes:
+      label: 做完希望得到什么？
+    validations:
+      required: true
+  - type: input
+    id: tools
+    attributes:
+      label: 现在会用哪些工具？
+      description: 不会用也可以直接写第一次用 AI。
+  - type: textarea
+    id: example
+    attributes:
+      label: 可以提供一个虚构的小例子吗？
+      description: 请勿填写电话、客户信息、账号密码或真实敏感资料。

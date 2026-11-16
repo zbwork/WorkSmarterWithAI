@@ -1,24 +1,35 @@
 # 参与贡献
 
-阅读 [网站贡献指南](docs/contribute/index.md) 与 [评测规则](docs/review-policy/index.md)。
+先读 [AGENTS.md](AGENTS.md) 和[评测规则](docs/review-policy/index.md)。
 
 1. Fork 仓库，运行 `pnpm install`。
-2. 使用 `pnpm new skill guide example-slug` 新建文章；可选类型 skill/workflow/app，性质 guide/review/original。
-3. 填写正文和元数据。未实测保持 unverified；评测必须提供测试记录后才可发布。
-4. 运行 `pnpm build`，提交 PR。修正排版不更新 updated；实际重测才更新 verified。
-5. 投稿明确来源与授权，截图、工作流中不含真实个人信息或密钥。
+2. 使用 `pnpm new task your-slug --scenario office --stage meeting` 新建任务。也支持 lesson、skill、app、review；场景和环节以配置为准，不填参数时在终端选择。
+3. 填好资源引用、正文和证据。未实测保持 unverified；评测实测后才能发布评分。`pnpm new` 生成的是待填写模板。
+4. 运行 `pnpm build` 后提交 PR。排版调整不更新 updated，真实重测才更新 verified。
+5. 投稿明确来源、授权，截图和下载包不含真实个人信息与密钥。
 
-五维评分权重见 `content.config.ts`。总分需与权重计算一致。公开正文按 CC BY 4.0、代码与原创资源按 MIT 授权。
+五维评分权重以 content.config.ts 为准。正文 CC BY 4.0，代码及原创资源 MIT，第三方保留原许可。
 
-## v0.2 分类与平台
+## 场景、环节和任务
 
-- 类型只用 Skill（技能）/ 工作流 / AI 应用，取值以 content.config.ts 为准。提示词归 skill + format: prompt；技能包用 format: skill；MCP 用 format: mcp。纯概念说明用 concept: true，不伪装成技能包。
-- 入门：会打开页面、点按钮、拖文件、复制粘贴；进阶：会安装配置、管理项目文件或组合现成技能；高级：会命令行、写脚本或开发技能。按每个平台实际所需能力标 level，写清 prerequisites。
-- 四个平台以 config 为唯一命名来源。format: skill 必须包含全部主平台记录与标签，至少两个平台 active 才进入默认列表；不足时是草稿，只在 catalog/?draft=1 列出，原网址仍可访问。
-- active 必须有真实日期、具体版本/环境和对应平台标签内的真实截图；未测试用 unverified，待补步骤用 planned；unsupported 必须写原因。planned/unsupported 标签内不写步骤。
-- 文章 difficulty/status/verified 由 platforms 派生，不要手工维护。普通聊天实测不能充当技能导入证据。每个平台超过 90 天独立提醒复测。
-- 连续使用 `::: platform slug` 写平台标签，通用导入步骤放在 platforms/。新手区（非 Codex 标签、折叠块之前的正文）不出现命令行；命令只写在 Codex 或“给懂行的人”折叠块。
-- 首次出现术语使用 `<Term id="skill" />`（其他 id 见 glossary.yml），解释用一句日常语言。平台名用 `<PlatformName slug="doubao" />`，组件不要硬编码分类名称。
-- 测试记录放文末 `<PlatformTestTable />`。保留输入、版本、日期、次数、失败与修正过程；没有证据不写成功率。
-- 图片存于文章的 images/，命名如 doubao-01-import.webp、codex-02-run.webp；不得使用设计图冒充截图。缺图明确写“待补截图”，列入 design/待实测清单.md。
-- 提交前运行 pnpm check、pnpm build，核对根路径与 /WorkSmarterWithAI/ 子路径；桌面与 375px 检查首页、总览、技能页、平台页，以及偏好和 URL 覆盖。
+- 分类、环节、工具、级别和做法名称只在 content.config.ts 定义。新任务先选场景和环节；第一项是主场景，同一任务可属于多个场景，正文只维护一份。
+- 任务放 docs/tasks/<slug>/；基础课放 docs/start/<slug>/，按 lesson 排序；资源放 docs/library/skills|workflows|apps/<id>/；独立评测放 docs/reviews/。
+- 标题从事情出发，如“把会议记录变成待办表”。每篇任务必须写“检查一下”，明确人名、数字、日期或引用要核对什么。
+- methods 第一项为推荐做法，用 type（skill/workflow/app）和 use 引用技能库。其他做法必须说明 note、level、status。提示词 format: prompt；技能包 format: skill；MCP format: mcp。
+- 技能库用 UsedIn 自动反查任务；AI 应用还按任务的 platforms 记录反查使用关系。草稿不计入已发布任务。
+- 生活类优先用手机截图、讲语音输入、一步一件事，正文不小于 16px，可点区域足够大。健康、法律、财务任务在“检查一下”说明 AI 只供参考，以相关专业人员意见为准。
+
+## 工具与证据
+
+- 工具唯一来源为 apps。doubao 表示普通聊天，doubao-work 表示豆包工作。普通聊天实测不能证明技能导入成功。
+- 推荐做法为技能包的任务，必须包含所有 skills: true 工具的记录和标签；至少 1 个 active 才公开列出，否则保留为草稿，可通过 /search/?draft=1 查看。
+- 知办能力待确认：skills: null，skillCandidate: true，仅保留 planned 标签，不建立应用条目，不宣称支持导入。确认能力后再调整配置。
+- frontmatter 保留 platforms；正文连续使用 ::: platform slug。读者界面统一叫“工具”。URL ?platform= 优先于跨文章偏好，再按配置顺序选择。
+- active 必须有真实 verified、version 和该工具的真实截图；unverified 不填实测日期；planned/unsupported 不写步骤，unsupported 必须说明原因。每个工具超过 90 天独立提醒复测。
+- 文章难度、状态、最近实测日期由工具记录派生。推荐做法的最低工具级别用于列表；筛选工具与级别时必须匹配同一个工具。
+- 通用导入步骤在技能库 AI 应用条目维护，任务只写这件事特有的操作。新手区（非 Codex 标签、折叠块之前）不出现命令行。
+- PromptBox 支持 src="资源目录名" part="prompt.md 的二级标题"，与 skills/<id>/prompt.md 共用原文，保留 slot 用法；不要在多处复制维护同一提示词。
+- 测试记录放文末 PlatformTestTable，保留失败、修正、版本、日期、输入与次数，不编成功率。价格写明查阅日期。
+- 图片随文章存 images/，工具-步骤命名；WebP、≤1600px、≤300KB、alt 必填。打码账号、电话、客户资料，不用设计图冒充截图。
+- 首页、侧栏、场景页只列已有已发布任务的分类；技能库可公开未验证资源并明确状态。跳转页不进搜索、站点地图和 llms。
+- 提交前 pnpm check 与 pnpm build；检查根路径、/WorkSmarterWithAI/ 子路径、桌面与 375px、旧链接、搜索及工具偏好。

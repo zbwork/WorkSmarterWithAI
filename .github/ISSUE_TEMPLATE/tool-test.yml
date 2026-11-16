@@ -1,6 +1,6 @@
-name: 平台实测投稿
-description: 提交一个教程在一个平台上的真实结果
-title: "[平台实测] 文章标题 / 平台"
+name: 工具实测投稿
+description: 提交一个教程在一个工具上的真实结果
+title: "[工具实测] 文章标题 / 工具"
 body:
   - type: input
     id: article
@@ -9,10 +9,10 @@ body:
     validations:
       required: true
   - type: input
-    id: platform
+    id: tool
     attributes:
-      label: 平台名称、客户端版本与模型
-      description: 页面未显示的版本请写未显示，不猜测。
+      label: 工具 slug、客户端版本与模型
+      description: slug 使用 doubao、doubao-work、workbuddy、zhiban、codex 或 deepseek；普通聊天和技能导入分开记录。页面未显示的版本请写未显示，不猜测。
     validations:
       required: true
   - type: input
@@ -32,6 +32,6 @@ body:
     id: screenshots
     attributes:
       label: 真实截图
-      description: 请上传导入、调用、结果截图，按平台-步骤命名，例如 doubao-01-import.webp。不要上传示意图。
+      description: 请上传导入、调用、结果截图，按工具-步骤命名，例如 doubao-work-01-import.webp。不要上传示意图。
     validations:
       required: true
