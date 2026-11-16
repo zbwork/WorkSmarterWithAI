@@ -6,7 +6,7 @@ import {isListed} from '../content-model.mjs'
 import {visibleScenarioGroups,scenarioTarget} from '../scenario-navigation.mjs'
 const tasks=articles.filter(a=>a.contentType==='task'&&isListed(a))
 const groups=visibleScenarioGroups(c,tasks)
-const featured=tasks.filter(a=>a.featured)
+const featured=c.homeFeatured.map(slug=>tasks.find(a=>a.url===`/tasks/${slug}/`)).filter(Boolean)
 </script>
 <template>
   <main class="manual-home">

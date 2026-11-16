@@ -2,6 +2,8 @@ export const contentConfig = {
   title: 'AI 提效指南',
   author: 'zbwork',
   repo: 'https://github.com/zbwork/WorkSmarterWithAI',
+  // 首页精选：职场、项目实战、生活各两篇，按此顺序展示。
+  homeFeatured: ['meeting-actions','interview-to-post','app-requirements','shop-selection','dinner-plan','outing-schedule'],
   scenarioGroups: [
     {id:'workplace',name:'职场',groups:['office','role'],order:1},
     {id:'projects',name:'项目实战',groups:['project'],order:2},

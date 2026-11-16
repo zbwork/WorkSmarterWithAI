@@ -17,6 +17,6 @@ export function scenarioNavigation(config,articles){
  return visibleScenarioGroups(config,articles).map(group=>{
   const entry=s=>({text:s.name,link:scenarioTarget(s,articles)})
   const common=group.items.filter(s=>s.group==='office'),others=group.items.filter(s=>s.group!=='office')
-  return {text:group.name,items:[...(common.length?[{items:common.map(entry)}]:[]),...(others.length?[{items:others.map(entry)}]:[]),{items:[{text:'全部场景 →',link:'/scenarios/#'+group.id}]}]}
+  return {text:group.name,items:[...(common.length?[{items:common.map(entry)}]:[]),...(others.length?[{items:others.map(entry)}]:[])]}
  })
 }

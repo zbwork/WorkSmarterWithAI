@@ -12,8 +12,8 @@ test('场景分为三组，职场合并通用和岗位；空场景、草稿不�
  assert.equal(groups.length,1)
  assert.deepEqual(groups[0].items.map(s=>s.id),['common','role'])
  const nav=scenarioNavigation(config,input)
- assert.deepEqual(nav[0].items.map(g=>g.items.map(i=>i.text)),[['通用'],['岗位'],['全部场景 →']])
- assert.equal(nav[0].items.at(-1).items[0].link,'/scenarios/#workplace')
+ assert.deepEqual(nav[0].items.map(g=>g.items.map(i=>i.text)),[['通用'],['岗位']])
+ assert.ok(scenarioNavigation(c,rows).every(group=>group.items.every(section=>section.items.every(item=>item.link.startsWith('/tasks/')))))
 })
 test('每个新场景有完整待实测案例，导航打开正文；共享任务仍在两个场景',()=>{
  assert.equal(c.scenarios.length,17)

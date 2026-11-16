@@ -14,23 +14,23 @@
 .VPNav .VPNavScreenAppearance{display:none}
 .VPNavBar .divider{padding-left:0!important}.VPNavBarTitle.has-sidebar .title{border:0}
 .manual-home{max-width:1312px;padding:0 48px;margin:0 auto}
-.manual-intro{padding:56px 0 40px;border-bottom:1px solid var(--vp-c-divider)}
+.manual-intro{padding:32px 0 24px;border-bottom:1px solid var(--vp-c-divider)}
 .manual-intro h1{font-family:var(--manual-serif);font-size:clamp(36px,3.5vw,48px);font-weight:900;line-height:1.35;letter-spacing:-.02em;margin:0}
 .manual-intro-bottom{display:flex;align-items:center;justify-content:space-between;gap:24px;margin-top:20px}
 .manual-intro p{font-size:18px;line-height:1.8;margin:0;color:var(--vp-c-text-1)}
-.manual-directory{display:grid;grid-template-columns:1fr 1fr;gap:64px;padding:12px 0 36px}
-.directory-entry{display:grid;grid-template-columns:42px minmax(0,1fr) 24px;gap:20px;align-items:start;padding:30px 0;border-bottom:1px solid var(--vp-c-divider)}
-.directory-number{font-family:var(--manual-serif);font-size:27px;font-weight:600;line-height:1.5;color:var(--vp-c-brand-1)}
-.directory-entry strong{display:block;font-family:var(--vp-font-family-base);font-size:28px;font-weight:600;line-height:1.4}
-.directory-entry small{display:block;font-size:16px;line-height:1.8;color:var(--vp-c-text-1);margin-top:4px}
+.manual-directory{display:grid;grid-template-columns:1fr 1fr;gap:24px 64px;padding:8px 0 36px}
+.directory-entry{display:grid;grid-template-columns:42px minmax(0,1fr) 24px;gap:20px;align-items:start;padding:12px 0;border-bottom:1px solid var(--vp-c-divider)}
+.directory-number{font-family:var(--manual-serif);font-size:18px;font-weight:500;line-height:1.5;color:var(--vp-c-brand-1)}
+.directory-entry strong{display:block;font-family:var(--vp-font-family-base);font-size:18px;font-weight:500;line-height:1.4}
+.directory-entry small{display:block;font-size:14px;line-height:1.6;color:var(--vp-c-text-1);margin-top:4px}
 .directory-entry{position:relative;isolation:isolate}
-.directory-entry::before{content:"";position:absolute;inset:10px -12px;z-index:-1;border-radius:6px;background:var(--vp-c-brand-soft);opacity:0;transition:opacity .15s}
-.directory-hand{width:33px;height:24px;overflow:visible;justify-self:end;align-self:center;fill:none;stroke:var(--vp-c-text-2);stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;transition:stroke .15s,transform .15s}
+.directory-entry::before{content:"";position:absolute;inset:4px -12px;z-index:-1;border-radius:6px;background:var(--vp-c-brand-soft);opacity:0;transition:opacity .15s}
+.directory-hand{width:26px;height:19px;overflow:visible;justify-self:end;align-self:center;fill:none;stroke:var(--vp-c-text-2);stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;transition:stroke .15s,transform .15s}
 .hand-rays{opacity:0;transition:opacity .15s}
 .directory-entry:focus-visible{outline:2px solid var(--vp-c-brand-1);outline-offset:4px}
 .directory-entry:focus-visible::before{opacity:1}.directory-entry:focus-visible .directory-hand{stroke:var(--vp-c-brand-1)}
 @media(hover:hover){.directory-entry:hover::before{opacity:1}.directory-entry:hover strong{color:var(--vp-c-brand-1)}.directory-entry:hover .directory-hand{stroke:var(--vp-c-brand-1);transform:translateX(-2px)}.directory-entry:hover .hand-rays{opacity:1}}
-.manual-featured{padding:30px 0 0}.manual-featured h2{font-size:16px;line-height:1.4;font-weight:600;color:var(--vp-c-brand-1);margin-bottom:12px}
+.manual-featured{padding:16px 0 0}.manual-featured h2{font-size:20px;line-height:1.5;font-weight:600;color:var(--vp-c-brand-1);margin-bottom:12px}
 .manual-featured a{min-height:44px;color:var(--vp-c-text-1);display:flex;justify-content:space-between;align-items:center;gap:20px;width:100%;font-family:var(--vp-font-family-base);font-weight:400;font-size:16px;line-height:1.8;padding:6px 0}.featured-arrow{flex-shrink:0;font-size:18px;line-height:1}.manual-featured a:hover{text-decoration:underline;text-underline-offset:4px}
 .VPDoc.has-sidebar .content,.VPDoc.has-sidebar .content-container{max-width:800px;width:100%;margin:0 auto}.VPDoc.has-sidebar .content{padding:0}
 .vp-doc h1,.vp-doc h2,.vp-doc h3{font-family:var(--manual-serif);font-weight:700;letter-spacing:0}
@@ -45,11 +45,11 @@
 .test-records{margin-top:32px!important;border-top:1px solid var(--vp-c-divider);padding-top:16px}.test-records>summary{font-size:14px;min-height:40px;line-height:40px}.test-records .platform-test-table{margin-top:8px}.test-records .platform-test-table small{display:block}.article-details{margin-top:24px;padding-top:14px}.article-details p,.article-details summary{font-size:13px}
 @media(min-width:960px){.VPDoc.has-sidebar{padding:46px 48px 0}.VPSidebar{padding-right:20px}}
 
-@media(max-width:1199px){.brand-caption{display:none}.handbook-search-link{width:180px;margin-left:16px}.handbook-search-link span{max-width:130px;overflow:hidden;text-overflow:ellipsis}.manual-directory{gap:40px}.directory-entry{gap:12px}}
+@media(max-width:1199px){.brand-caption{display:none}.handbook-search-link{width:180px;margin-left:16px}.handbook-search-link span{max-width:130px;overflow:hidden;text-overflow:ellipsis}.manual-directory{gap:24px 40px}.directory-entry{gap:12px}}
 @media(max-width:767px){
  .VPNavBarTitle .title{font-size:20px}.handbook-search-link{width:36px;border:0;background:transparent;padding:8px;margin-left:0;min-width:36px;min-height:44px}.handbook-search-link svg{width:22px;height:22px}.handbook-search-link span{display:none}
- .manual-home{padding:0 22px}.manual-intro{padding:32px 0 24px}.manual-intro h1{font-size:28px;line-height:1.5}.manual-intro-bottom{display:block;margin-top:12px}.manual-intro p{font-size:16px;margin:0 0 12px}.manual-start{font-size:16px;gap:8px}
- .manual-directory{grid-template-columns:1fr;gap:0;padding:0 0 28px}.directory-entry{padding:18px 0;grid-template-columns:32px minmax(0,1fr) 20px;gap:12px}.directory-number{font-size:22px}.directory-entry strong{font-size:22px}.directory-entry small{font-size:14px;margin-top:2px}.directory-hand{width:26px;height:19px}.manual-featured{padding-top:24px}.manual-featured a{padding:8px 0;font-size:15px}.manual-footer{flex-wrap:wrap;gap:12px;padding:20px 0;font-size:12px}.footer-tagline{display:none}
+ .manual-home{padding:0 22px}.manual-intro{padding:24px 0 16px}.manual-intro h1{font-size:28px;line-height:1.5}.manual-intro-bottom{display:block;margin-top:12px}.manual-intro p{font-size:16px;margin:0 0 12px}.manual-start{font-size:16px;gap:8px}
+ .manual-directory{grid-template-columns:1fr;gap:0;padding:0 0 28px}.directory-entry{padding:12px 0;grid-template-columns:32px minmax(0,1fr) 20px;gap:12px}.directory-number{font-size:18px}.directory-entry strong{font-size:18px}.directory-entry small{font-size:14px;margin-top:4px}.directory-hand{width:22px;height:16px}.manual-featured{padding-top:16px}.manual-featured a{padding:8px 0;font-size:15px}.manual-footer{flex-wrap:wrap;gap:12px;padding:20px 0;font-size:12px}.footer-tagline{display:none}
  .VPDoc{padding:28px 22px 0}.VPDoc .content{padding-top:0}.vp-doc h1{font-size:28px;line-height:1.5;margin-bottom:18px}.vp-doc h2,.platform-panel h2{font-size:23px;margin-top:30px}.vp-doc h3{font-size:20px}.vp-doc p,.vp-doc li{font-size:16px}.vp-doc th,.vp-doc td{padding:8px 10px}.vp-doc table{font-size:14px}
  .platform-tab-list{gap:16px;max-width:100%}.platform-tab-list>button{font-size:16px;padding:10px 4px}.prompt-body{padding:0 14px}.prompt-box .copy-feedback{padding-left:14px}.reading-footer{font-size:12px}.reading-footer nav{gap:14px}
 }
@@ -63,7 +63,7 @@
 
 /* Only separate directory entries; the last row has no extra closing rule. */
 @media(min-width:768px){.directory-column:first-child .directory-entry:last-child{border-bottom:0}}
-@media(max-width:767px){.VPNavBar .content-body{column-gap:0}.handbook-icon{width:36px;height:44px;margin-left:0}.handbook-search-link svg{width:20px;height:20px}.VPNavBar .hamburger{width:36px}.VPNavBar .wrapper{padding-left:16px;padding-right:8px}.directory-entry{min-height:98px}}
+@media(max-width:767px){.VPNavBar .content-body{column-gap:0}.handbook-icon{width:36px;height:44px;margin-left:0}.handbook-search-link svg{width:20px;height:20px}.VPNavBar .hamburger{width:36px}.VPNavBar .wrapper{padding-left:16px;padding-right:8px}.directory-entry{min-height:72px}}
 @media(prefers-reduced-motion:reduce){.directory-arrow{transition:none}}
 
 @media(min-width:960px){
@@ -102,11 +102,12 @@
 .scenario-sidebar summary::marker{content:""}
 .tree-chevron{width:12px;height:12px;transition:transform .15s}
 .scenario-sidebar details[open]>summary .tree-chevron{transform:rotate(90deg)}
+.VPNavBarMenuGroup>.menu{left:12px;right:auto}
 .VPNavBarMenuGroup .VPMenu{min-width:180px;border-radius:8px;box-shadow:0 4px 16px #00000012;padding:8px}
-.VPNavBarMenuGroup .VPMenu .group{margin:0;padding:0}
-.VPNavBarMenuGroup .VPMenu .group+.group{padding:6px 0 0;margin-top:6px}
+.VPNavBarMenuGroup .VPMenu .VPMenuGroup{margin:0;padding:0}
+.VPNavBarMenuGroup .VPMenu .VPMenuGroup+.VPMenuGroup{padding-top:4px;margin-top:4px}
 .VPNavBarMenuGroup .VPMenu .title{font-size:12px;padding:0 10px;line-height:24px}
-.VPNavBarMenuGroup .VPMenu .link{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:2px 10px;font-weight:400}
+.VPNavBarMenuGroup .VPMenu .link{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:2px 10px;line-height:28px;font-weight:400}
 .VPNavBarMenuGroup .VPMenu .link.active{background:var(--vp-c-brand-soft)}
 .VPNavBarMenuGroup .VPMenu .link.active::after{content:"";width:10px;height:6px;border-left:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(-45deg);margin-top:-3px}
 @media(max-width:959px){.scenario-switch-trigger,.scenario-options a{min-height:44px}}
@@ -133,8 +134,10 @@
 @media(min-width:1280px){.manual-outline-mobile{display:none}}
 @media(min-width:768px) and (max-width:959px){.VPLocalNav .menu{min-height:48px}}
 
-/* v0.3.1: group the existing directory without changing entry styling. */
-.directory-group-title{font-size:16px;line-height:1.5;font-weight:600;color:var(--vp-c-brand-1);padding-top:24px}
+/* Homepage group headings stay stronger than their compact scene entries. */
+.directory-group-title{font-size:20px;line-height:1.5;font-weight:600;color:var(--vp-c-brand-1);padding-top:16px;margin-bottom:12px}
+.directory-group-title + .directory-entry{padding-top:0}
+.directory-group-title + .directory-entry::before{top:-8px}
 .directory-column .directory-entry:last-child{border-bottom:0}
 .scenario-cards h2[id]{scroll-margin-top:calc(var(--vp-nav-height) + 24px)}
 /* Keep the expanded navigation from crowding the unchanged search at tablet widths. */
@@ -143,3 +146,5 @@
  .Layout .VPNavBarHamburger{display:flex}
  .Layout .VPNavScreen{display:block}
 }
+
+@media(pointer:coarse){.VPNavBarMenuGroup .VPMenu .link{min-height:44px}}
